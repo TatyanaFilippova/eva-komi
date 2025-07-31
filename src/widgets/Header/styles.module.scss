@@ -1,0 +1,43 @@
+@import "./../../shared/styles/mixins";
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 12px;
+  @include layout;
+}
+
+.border_bottom {
+  border-bottom: 1px solid $color-grey;
+}
+
+.container_promo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.promo {
+  @include title-promo;
+}
+
+.promo_description {
+  font-weight: $text-book;
+  font-size: 11px;
+}
+
+.container_menu {
+  display: flex;
+  gap: 32px;
+  font-weight: $text-medium;
+  font-size: 16px;
+
+  :nth-child(3) {
+    font-weight: $text-extra-bold;
+  }
+}
+
+.number {
+  @include title-promo;
+}
