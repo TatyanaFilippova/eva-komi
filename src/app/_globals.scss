@@ -3,6 +3,7 @@
 @import "../shared/styles/variables";
 
 /* Reset and base styles  */
+
 * {
   padding: 0;
   margin: 0;
@@ -22,6 +23,7 @@ a,
 a:link,
 a:visited {
   text-decoration: none;
+  color: inherit;
 }
 
 a:hover {

@@ -20,24 +20,81 @@
 
 .promo {
   @include title-promo;
+
+  @media (max-width: $tablet) {
+    @include title-h3;
+  }
+  @media (max-width: $mobile) {
+    @include title-h3;
+  }
 }
 
 .promo_description {
   font-weight: $text-book;
   font-size: 11px;
+
+  @media (max-width: $tablet) {
+    display: none;
+  }
+  @media (max-width: $mobile) {
+    display: none;
+  }
 }
 
 .container_menu {
   display: flex;
-  gap: 32px;
+  gap: 20px;
   font-weight: $text-medium;
   font-size: 16px;
+  color: #000000;
 
   :nth-child(3) {
     font-weight: $text-extra-bold;
+  }
+
+  @media (max-width: $tablet) {
+    display: none;
+  }
+  @media (max-width: $mobile) {
+    display: none;
   }
 }
 
 .number {
   @include title-promo;
+
+  @media (max-width: $tablet) {
+    font-weight: $text-medium;
+    color: #000000;
+    font-size: 20px;
+  }
+  @media (max-width: $mobile) {
+    font-weight: $text-medium;
+    color: #000000;
+    font-size: 15px;
+  }
+}
+
+.shell {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+}
+
+.icon_menu {
+  display: none;
+  cursor: pointer;
+
+  &:active {
+    top: 1px;
+    position: relative;
+  }
+
+  @media (max-width: $tablet) {
+    display: block;
+  }
+  @media (max-width: $mobile) {
+    display: block;
+  }
 }
