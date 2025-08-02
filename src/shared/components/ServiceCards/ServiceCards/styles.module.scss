@@ -1,0 +1,13 @@
+@import "./../../../styles/mixins";
+
+.containerCards {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: 20px;
+}
+
+.container {
+  margin-bottom: 66px;
+  @include layout;
+}

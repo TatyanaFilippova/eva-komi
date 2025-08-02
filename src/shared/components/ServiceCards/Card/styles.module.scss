@@ -11,34 +11,43 @@
 
 .container-L {
   width: 100%;
+  position: relative;
 
+  .image{
+    position: absolute;
+    right: 40px;
+    top: 130px;
+  }
   .shell {
     justify-content: space-between;
   }
 }
 
 .container-M {
-  width: 77.77%;
+  width: calc(77.77% - 150px);
+  position: relative;
 
   .shell {
     justify-content: space-between;
   }
   .image {
-    padding-right: 60px;
+    margin-right: 60px;
+    object-fit: cover;
+    position: absolute;
+    top: 130px;
+    right: 20px;
   }
 }
 
 .container-S {
-  width: 33.33%;
+  width: calc(33.33%);
   position: relative;
   overflow: hidden;
 
-  .description {
-    width: 70%;
-  }
   .image {
     position: absolute;
-    right: -160px;
+    right: -100px;
+    object-fit: cover;
   }
   .shell {
     justify-content: space-between;
