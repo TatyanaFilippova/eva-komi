@@ -1,0 +1,21 @@
+@import "../../styles/mixins";
+
+.container{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  margin-bottom: 64px;
+}
+
+.title{
+  @include title-h1;
+  margin-bottom: 24px;
+  color: #000000;
+}
+
+.description{
+  font-weight: $text-medium;
+  font-size: 20px;
+  max-width: 860px;
+}

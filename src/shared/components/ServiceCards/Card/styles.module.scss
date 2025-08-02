@@ -1,0 +1,67 @@
+@import "../../../styles/mixins";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 338px;
+  background-color: $color-grey-card;
+  padding: 24px 24px;
+  border-radius: 16px;
+}
+
+.container-L {
+  width: 100%;
+
+  .shell {
+    justify-content: space-between;
+  }
+}
+
+.container-M {
+  width: 77.77%;
+
+  .shell {
+    justify-content: space-between;
+  }
+  .image {
+    padding-right: 60px;
+  }
+}
+
+.container-S {
+  width: 33.33%;
+  position: relative;
+  overflow: hidden;
+
+  .description {
+    width: 70%;
+  }
+  .image {
+    position: absolute;
+    right: -160px;
+  }
+  .shell {
+    justify-content: space-between;
+  }
+}
+
+.title {
+  @include title-h2;
+  margin-bottom: 24px;
+}
+
+.description {
+  font-weight: $text-book;
+  font-size: 15px;
+  max-width: 300px;
+  padding-bottom: 16px;
+}
+
+.image {
+  width: 356px;
+  height: 202px;
+}
+
+.shell {
+  display: flex;
+}
