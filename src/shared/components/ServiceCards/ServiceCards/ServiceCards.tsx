@@ -1,48 +1,29 @@
-import Card from "@/shared/components/ServiceCards/Card/Card";
+import Card, { CardProps } from "@/shared/components/ServiceCards/Card/Card";
 import HeadingSection from "@/shared/components/HeadingSection/HeadingSection";
 import styles from "./styles.module.scss";
 
-const ServiceCards = () => {
+interface ServiceCardProps {
+  listCards: CardProps[];
+  title: string;
+  description: string;
+}
+
+const ServiceCards = ({ listCards, title, description }: ServiceCardProps) => {
   return (
     <div className={styles.container}>
-      <HeadingSection
-        title="Какие проблемы мы решаем"
-        description="Неважно, попали ли вы в ДТП, сломались на трассе или просто хотите перегнать автомобиль — мы обеспечим безопасную транспортировку с гарантией сохранности."
-      />
+      <HeadingSection title={title} description={description} />
       <div className={styles.containerCards}>
-        <Card
-          titleCard={"Эвакуация легковых автомобилей"}
-          descriptionCard={
-            "Эвакуируем легковой автомобиль или легкий кроссовер массой до 2.5.тонн"
-          }
-          descriptionSecondCard={
-            "В данную категорию относятся хетчбеки, седаны, универсалы, минивены"
-          }
-          imageCard="/imageCard.png"
-          size={"M"}
-        />
-        <Card
-          titleCard={"Эвакуация легковых автомобилей"}
-          descriptionCard={
-            "Эвакуируем легковой автомобиль или легкий кроссовер массой до 2.5.тонн"
-          }
-          descriptionSecondCard={
-            "В данную категорию относятся хетчбеки, седаны, универсалы, минивены"
-          }
-          imageCard="/imageCard.png"
-          size={"S"}
-        />
-        <Card
-          titleCard={"Эвакуация легковых автомобилей"}
-          descriptionCard={
-            "Эвакуируем легковой автомобиль или легкий кроссовер массой до 2.5.тонн"
-          }
-          descriptionSecondCard={
-            "В данную категорию относятся хетчбеки, седаны, универсалы, минивены"
-          }
-          imageCard="/imageCard.png"
-          size={"L"}
-        />
+        {listCards.map((card) => (
+          <Card
+            titleCard={card.titleCard}
+            descriptionCard={card.descriptionCard}
+            descriptionSecondCard={card.descriptionSecondCard}
+            imageCard={card.imageCard}
+            size={card.size}
+            key={card.id}
+            id={card.id}
+          />
+        ))}
       </div>
     </div>
   );

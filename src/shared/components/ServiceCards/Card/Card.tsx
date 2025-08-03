@@ -1,11 +1,12 @@
 import styles from "./styles.module.scss";
 
-interface CardProps {
+export interface CardProps {
   titleCard: string;
   descriptionCard: string;
   descriptionSecondCard: string;
   imageCard: string;
   size: string;
+  id: number;
 }
 
 const Card = ({
