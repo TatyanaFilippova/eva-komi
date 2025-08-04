@@ -1,15 +1,16 @@
 @import "./../../shared/styles/mixins";
 
+.border_bottom {
+  border-bottom: 1px solid $color-grey;
+}
+
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding-bottom: 12px;
-  @include layout;
-}
 
-.border_bottom {
-  border-bottom: 1px solid $color-grey;
+  @include layout;
 }
 
 .container_promo {

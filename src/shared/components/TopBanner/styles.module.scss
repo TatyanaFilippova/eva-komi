@@ -1,0 +1,57 @@
+@import "./../../styles/mixins";
+@import "./../../styles/variables";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 700px;
+  width: 100%;
+  position: relative;
+  justify-content: center;
+
+  @include layout;
+}
+
+.fonBanner {
+  position: absolute;
+  left: 0;
+  top: 156px;
+}
+
+.carBanner {
+  position: absolute;
+  width: 711px;
+  height: 440px;
+  top: 100px;
+  right: 40px;
+}
+
+.shell{
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  text-align: left;
+  width: 40%;
+  padding-top: 250px;
+}
+
+.heading{
+  font-size: 32px;
+  font-weight: $text-regular-text;
+}
+
+.title{
+ @include title-h1;
+}
+
+.description{
+  font-size: 20px;
+  font-weight: $text-regular-text;
+}
+
+.shellContacts{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: self-end;
+  }
