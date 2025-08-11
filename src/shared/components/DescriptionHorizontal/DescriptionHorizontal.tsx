@@ -1,4 +1,4 @@
-import styles from "./styled.module.scss";
+import styles from "./styles.module.scss";
 
 interface DescriptionHorizontalProps {
   title: string;
@@ -13,10 +13,12 @@ function DescriptionHorizontal({
 }: DescriptionHorizontalProps) {
   return (
     <div className={styles.container}>
-      <div>{title}</div>
-      <div>
+      <div className={styles.title}>{title}</div>
+      <div className={styles.shell}>
         {listTextHorizontal.map((text) => (
-          <div key={text.title}>{text.title}</div>
+          <div key={text.title} className={styles.description}>
+            {text.title}
+          </div>
         ))}
       </div>
     </div>

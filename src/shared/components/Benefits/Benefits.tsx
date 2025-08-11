@@ -2,7 +2,7 @@ import HeadingSection from "@/shared/components/HeadingSection/HeadingSection";
 import CardBenefit, {
   CardBenefitsProps,
 } from "@/shared/components/Benefits/CardBenefit/CardBenefit";
-import styles from "./styled.module.scss";
+import styles from "./styles.module.scss";
 
 interface BenefitsProps {
   title: string;

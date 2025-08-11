@@ -1,4 +1,4 @@
-import styles from "./styled.module.scss";
+import styles from "./styles.module.scss";
 
 export interface CardBenefitsProps {
   imageCard: string;
