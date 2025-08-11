@@ -1,7 +1,7 @@
 import CallTruck from "@/shared/components/CallTruck/CallTruck/CallTruck";
 
 export default {
-  title: "CallTruck",
+  title: "callTruck",
 };
 
 const listCardCall = [

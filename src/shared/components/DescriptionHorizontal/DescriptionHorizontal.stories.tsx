@@ -1,7 +1,7 @@
 import DescriptionHorizontal from "@/shared/components/DescriptionHorizontal/DescriptionHorizontal";
 
 export default {
-  title: "DescriptionHorizontal",
+  title: "descriptionHorizontal",
 };
 
 const listTextHorizontal = [

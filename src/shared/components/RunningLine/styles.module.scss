@@ -1,0 +1,34 @@
+@import "./../../styles/mixins";
+
+.container {
+  position: relative;
+  overflow: hidden;
+  height: 300px;
+  width: 100%;
+}
+
+.track {
+  position: absolute;
+  display: flex;
+  align-items: center; /* Вертикальное выравнивание */
+  width: max-content;
+  height: 128px; /* Высота соответствует размеру текста */
+}
+
+.item {
+  flex-shrink: 0;
+  padding: 0 4rem;
+  font-size: 128px; /* Размер текста 128px */
+  font-weight: $text-heavy;
+  color: #868686;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.top {
+  top: 50px;
+}
+
+.bottom {
+  top: 150px; /* Учитываем высоту текста + отступ */
+}
