@@ -1,0 +1,14 @@
+@import "./../../../styles/mixins";
+
+.container {
+  @include layout;
+  margin-bottom: 200px;
+  margin-top: 170px;
+}
+
+.containerCards {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  margin-top: 80px;
+}

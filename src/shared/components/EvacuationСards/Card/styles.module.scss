@@ -1,0 +1,51 @@
+@import "./../../../styles/mixins";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: relative;
+  width: 730px;
+}
+
+.title {
+  @include title-h2;
+  padding-bottom: 26px;
+}
+
+.description {
+  font-size: 13px;
+  font-weight: $text-book;
+  padding-bottom: 20px;
+  width: 80%;
+}
+
+.button {
+  background-color: $color-grey-dark;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: $text-bold-text;
+  padding: 10px 70px;
+  margin-bottom: 10px;
+  margin-top: 50px;
+}
+
+.serviceText {
+  font-size: 16px;
+  font-weight: $text-extra-bold;
+}
+
+.shell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.imageCard {
+  width: 420px;
+  height: 238px;
+  position: absolute;
+  right: 0;
+  top: 60px;
+}

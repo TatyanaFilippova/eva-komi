@@ -1,0 +1,13 @@
+@import "./../../../styles/mixins";
+
+.containerCallTruck{
+  @include layout
+}
+
+
+.container{
+  display: flex;
+  width: 100%;
+  gap: 166px;
+  justify-content: center;
+}
