@@ -7,6 +7,10 @@
   width: 100%;
   margin-top: 50px;
 
+  @media (max-width: $tablet) {
+    height: 200px;
+    margin-top: 0;
+  }
   @media (max-width: $mobile) {
     height: 200px;
     margin-top: 100px;
@@ -20,6 +24,9 @@
   width: max-content;
   height: 128px; /* Высота соответствует размеру текста */
 
+  @media (max-width: $tablet) {
+    height: 54px;
+  }
   @media (max-width: $mobile) {
     height: 54px;
   }
@@ -34,6 +41,9 @@
   line-height: 1;
   white-space: nowrap;
 
+  @media (max-width: $tablet) {
+    font-size: 54px;
+  }
   @media (max-width: $mobile) {
     font-size: 54px;
   }
@@ -47,6 +57,9 @@
 .bottom {
   top: 150px; /* Учитываем высоту текста + отступ */
 
+  @media (max-width: $tablet) {
+    top: 100px;
+  }
   @media (max-width: $mobile) {
     top: 100px;
   }

@@ -9,12 +9,19 @@
 
 .buttonCardCall {
   width: 230px;
+
+  @media (max-width: $tablet) {
+    width: 190px;
+  }
 }
 
 .title {
   font-weight: $text-bold-text;
   font-size: 32px;
 
+  @media (max-width: $tablet) {
+    font-size: 28px;
+  }
   @media (max-width: $mobile) {
     font-size: 28px;
   }
@@ -31,6 +38,10 @@
   font-size: 32px;
   padding-bottom: 38px;
 
+  @media (max-width: $tablet) {
+    font-size: 24px;
+    padding-bottom: 20px;
+  }
   @media (max-width: $mobile) {
     font-size: 28px;
     padding-bottom: 18px;
@@ -42,4 +53,7 @@
   padding: 10px 70px;
   background-color: $color-grey-dark;
   color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

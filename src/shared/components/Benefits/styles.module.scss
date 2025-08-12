@@ -4,6 +4,9 @@
   @include layout;
   margin-top: 200px;
 
+  @media (max-width: $tablet) {
+    margin-top: 150px;
+  }
   @media (max-width: $mobile) {
     margin-top: 100px;
   }
@@ -17,8 +20,10 @@
   gap: 65px;
   justify-content: center;
 
+  @media (max-width: $tablet) {
+    gap: 40px;
+  }
   @media (max-width: $mobile) {
     flex-direction: column;
-
   }
 }

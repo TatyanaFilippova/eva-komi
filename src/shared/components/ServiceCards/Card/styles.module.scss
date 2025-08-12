@@ -19,6 +19,9 @@
     top: 130px;
     object-fit: cover;
 
+    @media (max-width: $tablet) {
+      top: 170px;
+    }
     @media (max-width: $mobile) {
       right: -100px;
       top: 170px;
@@ -47,6 +50,11 @@
     top: 130px;
     right: 20px;
 
+    @media (max-width: $tablet) {
+      right: -100px;
+      margin-right: 0;
+      top: 170px;
+    }
     @media (max-width: $mobile) {
       right: -100px;
       margin-right: 0;
@@ -54,6 +62,10 @@
     }
   }
 
+  @media (max-width: $tablet) {
+    width: calc(50% - 10px);
+    overflow: hidden;
+  }
   @media (max-width: $mobile) {
     width: 100%;
     overflow: hidden;
@@ -71,14 +83,20 @@
     object-fit: cover;
     top: 130px;
 
+    @media (max-width: $tablet) {
+      top: 170px;
+    }
     @media (max-width: $mobile) {
-     top: 170px;
+      top: 170px;
     }
   }
   .shell {
     justify-content: space-between;
   }
 
+  @media (max-width: $tablet) {
+    width: calc(50% - 10px);
+  }
   @media (max-width: $mobile) {
     width: 100%;
   }
@@ -100,6 +118,10 @@
   width: 356px;
   height: 202px;
 
+  @media (max-width: $tablet) {
+    height: 152px;
+    width: 306px;
+  }
   @media (max-width: $mobile) {
     height: 152px;
     width: 306px;

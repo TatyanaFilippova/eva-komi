@@ -10,6 +10,9 @@
   gap: 120px;
   margin-top: 200px;
 
+  @media (max-width: $tablet) {
+    margin-top: 150px;
+  }
   @media (max-width: $mobile) {
     gap: 90px;
     height: 380px;
@@ -66,6 +69,9 @@
   font-size: 24px;
   font-weight: $text-book;
 
+  @media (max-width: $tablet) {
+    font-size: 20px;
+  }
   @media (max-width: $mobile) {
    font-size: 20px;
   }
@@ -75,6 +81,9 @@
   font-size: 30px;
   font-weight: $text-black-text;
 
+  @media (max-width: $tablet) {
+   font-size: 24px;
+  }
   @media (max-width: $mobile) {
    font-size: 20px;
   }
