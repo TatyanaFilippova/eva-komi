@@ -10,6 +10,9 @@
   justify-content: center;
 
   @include layout;
+  @media (max-width: $mobile) {
+    height: 500px;
+  }
 }
 
 .fonBanner {
@@ -17,6 +20,10 @@
   left: 0;
   top: 156px;
   z-index: -1;
+
+  @media (max-width: $mobile) {
+    top: 100px;
+  }
 }
 
 .carBanner {
@@ -25,34 +32,49 @@
   height: 440px;
   top: 100px;
   right: 40px;
+
+  @media (max-width: $mobile) {
+    width: 211px;
+    height: 140px;
+    top: 70px;
+  }
 }
 
-.shell{
+.shell {
   display: flex;
   flex-direction: column;
   gap: 14px;
   text-align: left;
   width: 40%;
   margin-top: 350px;
+
+  @media (max-width: $mobile) {
+    margin-top: 300px;
+    width: 90%;
+  }
 }
 
-.heading{
+.heading {
   font-size: 32px;
   font-weight: $text-regular-text;
 }
 
-.title{
- @include title-h1;
+.title {
+  @include title-h1;
 }
 
-.description{
+.description {
   font-size: 20px;
   font-weight: $text-regular-text;
+
+  @media (max-width: $mobile) {
+    margin-bottom: 80px;
+  }
 }
 
-.shellContacts{
+.shellContacts {
   display: flex;
   flex-direction: column;
   width: 100%;
   align-items: self-end;
-  }
+}

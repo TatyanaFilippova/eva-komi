@@ -11,6 +11,9 @@
   padding-bottom: 12px;
 
   @include layout;
+  @media (max-width: $mobile) {
+    padding-top: 12px;
+  }
 }
 
 .container_promo {

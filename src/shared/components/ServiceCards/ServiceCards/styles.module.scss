@@ -11,4 +11,8 @@
   margin-bottom: 66px;
   @include layout;
   margin-top: 200px;
+
+  @media (max-width: $mobile) {
+    margin-top: 100px;
+  }
 }

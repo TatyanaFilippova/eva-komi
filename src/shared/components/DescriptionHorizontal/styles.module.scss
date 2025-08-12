@@ -7,10 +7,12 @@
   width: 100%;
   align-items: center;
   margin-top: 200px;
+
+
 }
 
 .title{
-  @include title-h1;
+  @include title-h2;
   width: 70%;
 }
 

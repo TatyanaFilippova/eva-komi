@@ -6,6 +6,11 @@
   height: 300px;
   width: 100%;
   margin-top: 50px;
+
+  @media (max-width: $mobile) {
+    height: 200px;
+    margin-top: 100px;
+  }
 }
 
 .track {
@@ -14,6 +19,10 @@
   align-items: center; /* Вертикальное выравнивание */
   width: max-content;
   height: 128px; /* Высота соответствует размеру текста */
+
+  @media (max-width: $mobile) {
+    height: 54px;
+  }
 }
 
 .item {
@@ -24,12 +33,21 @@
   color: #868686;
   line-height: 1;
   white-space: nowrap;
+
+  @media (max-width: $mobile) {
+    font-size: 54px;
+  }
 }
 
 .top {
   top: 50px;
+
 }
 
 .bottom {
   top: 150px; /* Учитываем высоту текста + отступ */
+
+  @media (max-width: $mobile) {
+    top: 100px;
+  }
 }
