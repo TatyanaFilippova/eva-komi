@@ -1,0 +1,51 @@
+@import "./../../shared/styles/mixins";
+
+.container {
+  @include layout;
+  background-color: $color-footer-grey;
+  display: flex;
+  flex-direction: column;
+  height: 430px;
+  align-items: center;
+  width: 100%;
+  gap: 120px;
+}
+
+.shell {
+  @include layout;
+  background-color: $color-dark;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  color: #ffffff;
+  font-weight: $text-book;
+}
+
+.icon {
+  width: 382px;
+  height: 60px;
+  margin-top: 98px;
+}
+
+.border {
+  border-top: 1px solid $color-border-grey;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  color: #ffffff;
+  align-items: center;
+}
+
+.number, .address{
+  padding-top: 30px;
+}
+
+.address {
+  font-size: 24px;
+  font-weight: $text-book;
+}
+
+.number{
+  font-size: 30px;
+  font-weight: $text-black-text;
+}
