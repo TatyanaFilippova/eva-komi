@@ -4,7 +4,7 @@ export default {
   title: "descriptionHorizontal",
 };
 
-const listTextHorizontal = [
+export const listTextHorizontal = [
   {
     title: "Профессиональная эвакуация транспорта 24/7. ",
   },

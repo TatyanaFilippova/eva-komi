@@ -2,23 +2,31 @@
 
 .container {
   @include layout;
-  background-color: $color-footer-grey;
   display: flex;
   flex-direction: column;
   height: 430px;
   align-items: center;
   width: 100%;
   gap: 120px;
+  margin-top: 200px;
+}
+
+.bg {
+  background-color: $color-footer-grey;
 }
 
 .shell {
   @include layout;
-  background-color: $color-dark;
+
   height: 120px;
   display: flex;
   align-items: center;
   color: #ffffff;
   font-weight: $text-book;
+}
+
+.bgBottom {
+  background-color: $color-dark;
 }
 
 .icon {
@@ -36,7 +44,8 @@
   align-items: center;
 }
 
-.number, .address{
+.number,
+.address {
   padding-top: 30px;
 }
 
@@ -45,7 +54,7 @@
   font-weight: $text-book;
 }
 
-.number{
+.number {
   font-size: 30px;
   font-weight: $text-black-text;
 }

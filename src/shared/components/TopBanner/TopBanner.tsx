@@ -5,7 +5,7 @@ import Contacts from "@/shared/components/Contacts/Contacts";
 
 interface TopBannerProps {
   title: string;
-  heading: string;
+  heading?: string;
   description: string;
 }
 
@@ -15,7 +15,7 @@ const TopBanner = ({ heading, description, title }: TopBannerProps) => {
       <img src={fonBanner.src} className={styles.fonBanner} />
       <img src={carBanner.src} className={styles.carBanner} />
       <div className={styles.shell}>
-        <div className={styles.heading}>{heading}</div>
+        {heading && <div className={styles.heading}>{heading}</div>}
         <div className={styles.title}>{title}</div>
         <div className={styles.description}>{description}</div>
       </div>

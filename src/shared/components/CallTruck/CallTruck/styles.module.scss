@@ -1,7 +1,8 @@
 @import "./../../../styles/mixins";
 
 .containerCallTruck{
-  @include layout
+  @include layout;
+  margin-top: 200px;
 }
 
 

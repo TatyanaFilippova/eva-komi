@@ -1,5 +1,4 @@
-// Marquee.tsx
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import styles from "./styles.module.scss";
 
 interface RunningLineProps {
@@ -8,7 +7,6 @@ interface RunningLineProps {
 }
 
 const RunningLine = ({ text, duration = 30 }: RunningLineProps) => {
-  // 4 копии текста для идеальной плавности
   const content = (
     <>
       <span className={styles.item}>{text}</span>
@@ -20,7 +18,6 @@ const RunningLine = ({ text, duration = 30 }: RunningLineProps) => {
 
   return (
     <div className={styles.container}>
-      {/* Верхняя строка (влево) */}
       <motion.div
         className={`${styles.track} ${styles.top}`}
         animate={{
@@ -36,8 +33,6 @@ const RunningLine = ({ text, duration = 30 }: RunningLineProps) => {
       >
         {content}
       </motion.div>
-
-      {/* Нижняя строка (вправо) */}
       <motion.div
         className={`${styles.track} ${styles.bottom}`}
         animate={{

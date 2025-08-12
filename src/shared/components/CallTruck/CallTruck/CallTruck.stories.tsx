@@ -4,7 +4,7 @@ export default {
   title: "callTruck",
 };
 
-const listCardCall = [
+export const listCardCall = [
   {
     titleCard: "Способ 1",
     descriptionCard: "Позвоните по номеру",

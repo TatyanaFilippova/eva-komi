@@ -16,6 +16,7 @@
   position: absolute;
   left: 0;
   top: 156px;
+  z-index: -1;
 }
 
 .carBanner {
@@ -32,7 +33,7 @@
   gap: 14px;
   text-align: left;
   width: 40%;
-  padding-top: 250px;
+  margin-top: 350px;
 }
 
 .heading{

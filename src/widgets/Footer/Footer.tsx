@@ -1,9 +1,9 @@
 import styles from "./styles.module.scss";
-import logo from "./../../shared/assets/images/eva-komi-logo.png";
+import logo from "./../../shared/assets/images/logo.png";
 
 function Footer() {
   return (
-    <div>
+    <div className={styles.bg}>
       <div className={styles.container}>
         <img src={logo.src} className={styles.icon} />
         <div className={styles.border}>
@@ -11,7 +11,9 @@ function Footer() {
           <div className={styles.address}>г. Сыктывкар, Республика Коми</div>
         </div>
       </div>
-      <div className={styles.shell}>Разработано Unclespace group</div>
+      <div className={styles.bgBottom}>
+        <div className={styles.shell}>Разработано Unclespace group</div>
+      </div>
     </div>
   );
 }

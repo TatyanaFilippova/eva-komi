@@ -4,7 +4,7 @@ export default {
   title: "serviceCards",
 };
 
-const listCards = [
+export const listCards = [
   {
     titleCard: "Эвакуация легковых автомобилей",
     descriptionCard:
