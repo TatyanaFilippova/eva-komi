@@ -1,14 +1,22 @@
 @import "./../../../styles/mixins";
 
-.containerCallTruck{
+.containerCallTruck {
   @include layout;
   margin-top: 200px;
+
+  @media (max-width: $mobile) {
+    margin-top: 100px;
+  }
 }
 
-
-.container{
+.container {
   display: flex;
   width: 100%;
   gap: 166px;
   justify-content: center;
+
+  @media (max-width: $mobile) {
+    flex-direction: column;
+    gap: 66px;
+  }
 }

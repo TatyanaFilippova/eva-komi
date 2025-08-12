@@ -3,6 +3,10 @@
 .container {
   @include layout;
   margin-top: 200px;
+
+  @media (max-width: $mobile) {
+    margin-top: 100px;
+  }
 }
 
 .containerCard {
@@ -12,4 +16,9 @@
   width: 100%;
   gap: 65px;
   justify-content: center;
+
+  @media (max-width: $mobile) {
+    flex-direction: column;
+
+  }
 }

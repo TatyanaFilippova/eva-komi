@@ -6,11 +6,20 @@
   gap: 24px;
   align-items: center;
   width: 24%;
+
+  @media (max-width: $mobile) {
+    width: 100%;
+  }
 }
 
 .image {
   width: 140px;
   height: 140px;
+
+  @media (max-width: $mobile) {
+    width: 100px;
+    height: 100px;
+  }
 }
 
 .title {

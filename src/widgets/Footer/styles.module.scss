@@ -9,6 +9,11 @@
   width: 100%;
   gap: 120px;
   margin-top: 200px;
+
+  @media (max-width: $mobile) {
+    gap: 90px;
+    height: 380px;
+  }
 }
 
 .bg {
@@ -33,6 +38,13 @@
   width: 382px;
   height: 60px;
   margin-top: 98px;
+  object-fit: cover;
+
+  @media (max-width: $mobile) {
+    width: 282px;
+    height: 40px;
+    margin-top: 80px;
+  }
 }
 
 .border {
@@ -42,6 +54,7 @@
   width: 100%;
   color: #ffffff;
   align-items: center;
+  text-align: right;
 }
 
 .number,
@@ -52,9 +65,17 @@
 .address {
   font-size: 24px;
   font-weight: $text-book;
+
+  @media (max-width: $mobile) {
+   font-size: 20px;
+  }
 }
 
 .number {
   font-size: 30px;
   font-weight: $text-black-text;
+
+  @media (max-width: $mobile) {
+   font-size: 20px;
+  }
 }
