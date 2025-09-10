@@ -1,6 +1,5 @@
 import styles from "./page.module.scss";
 import Header from "@/widgets/Header/Header";
-import TopBanner from "@/shared/components/TopBanner/TopBanner";
 import RunningLine from "@/shared/components/RunningLine/RunningLine";
 import ServiceCards from "@/shared/components/ServiceCards/ServiceCards/ServiceCards";
 import DescriptionHorizontal from "@/shared/components/DescriptionHorizontal/DescriptionHorizontal";
@@ -9,6 +8,7 @@ import { listCardCall } from "@/shared/components/CallTruck/CallTruck/CallTruck.
 import Benefits from "@/shared/components/Benefits/Benefits";
 import Footer from "@/widgets/Footer/Footer";
 import { getHomeData } from "@/utils/api/api";
+import TopBannerHome from "@/shared/components/TopBanner/home/TopBanner";
 
 export default async function Home() {
   const data = await getHomeData();
@@ -16,7 +16,7 @@ export default async function Home() {
   return (
     <div className={styles.page}>
       <Header />
-      <TopBanner title={data.home.title} description={data.home.text} />
+      <TopBannerHome title={data.home.title} description={data.home.text} />
       <RunningLine text="Все услуги службы эвакуации" />
       {data.home.blocks.map((item, index) => {
         if (

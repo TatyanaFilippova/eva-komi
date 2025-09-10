@@ -1,0 +1,156 @@
+@import "./../../../styles/mixins";
+@import "./../../../styles/variables";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 700px;
+  width: 100%;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+
+  @include layout;
+  @media (max-width: $tablet) {
+    height: 600px;
+  }
+  @media (max-width: $mobile) {
+    height: 500px;
+  }
+}
+
+.fonBanner {
+  position: absolute;
+  left: 0;
+  top: 156px;
+  z-index: -1;
+
+  @media (max-width: $mobile) {
+    top: 100px;
+  }
+}
+
+.carBanner {
+  position: absolute;
+  width: 711px;
+  height: 440px;
+  top: 10px;
+  right: 350px;
+
+  @media (max-width: $tablet) {
+    width: 440px;
+    height: 290px;
+    top: 40px;
+    left: 200px;
+  }
+  @media (max-width: $mobile) {
+    width: 360px;
+    height: 220px;
+    top: 10px;
+    left: 40px;
+  }
+}
+
+.shell {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  text-align: center;
+  width: 70%;
+  margin-top: 550px;
+
+  @media (max-width: $tablet) {
+    margin-top: 350px;
+    width: 90%;
+  }
+  @media (max-width: $mobile) {
+    margin-top: 350px;
+    width: 100%;
+    text-align: left;
+  }
+}
+
+.heading {
+  font-size: 32px;
+  font-weight: $text-regular-text;
+}
+
+.title {
+  @include title-h1;
+  margin-bottom: 20px;
+}
+
+.description {
+  font-size: 20px;
+  font-weight: $text-regular-text;
+
+  @media (max-width: $mobile) {
+    margin-bottom: 80px;
+  }
+}
+
+.shellContacts {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 100px;
+
+  @media (max-width: $tablet) {
+    margin-top: 80px;
+  }
+  @media (max-width: $mobile) {
+    align-items: flex-start;
+    margin-top: 0;
+  }
+}
+
+.image {
+  position: fixed;
+  z-index: 100;
+  right: 40px;
+  bottom: 60px;
+  cursor: pointer;
+  width: 102px;
+  height: 102px;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+
+  @media (max-width: $tablet) {
+    height: 82px;
+    right: 24px;
+    bottom: 20px;
+  }
+
+  @media (max-width: $mobile) {
+    width: 62px;
+    height: 62px;
+    bottom: 40px;
+    right: 10px;
+
+  }
+}
+
+.imageScrolled {
+  position: fixed;
+  z-index: 100;
+  right: 40px;
+  bottom: 60px;
+  cursor: pointer;
+  width: 102px;
+  height: 102px;
+  opacity: 0.6;
+
+  @media (max-width: $tablet) {
+    height: 82px;
+    right: 24px;
+    bottom: 20px;
+  }
+
+  @media (max-width: $mobile) {
+    width: 62px;
+    height: 62px;
+    bottom: 40px;
+    right: 10px;
+
+  }
+}

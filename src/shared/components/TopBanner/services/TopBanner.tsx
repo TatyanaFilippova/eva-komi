@@ -1,7 +1,7 @@
 "use client";
 import styles from "./styles.module.scss";
-import carBanner from "./../../assets/images/carBanner.png";
-import fonBanner from "./../../assets/images/fonBanner.png";
+import carBanner from "./../../../assets/images/carBanner.png";
+import fonBanner from "./../../../assets/images/fonBanner.png";
 import Contacts from "@/shared/components/Contacts/Contacts";
 
 interface TopBannerProps {
