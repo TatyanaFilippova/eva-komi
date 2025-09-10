@@ -1,47 +1,81 @@
-"use client";
-
 import styles from "./page.module.scss";
 import Header from "@/widgets/Header/Header";
 import TopBanner from "@/shared/components/TopBanner/TopBanner";
 import RunningLine from "@/shared/components/RunningLine/RunningLine";
 import ServiceCards from "@/shared/components/ServiceCards/ServiceCards/ServiceCards";
-import { listCards } from "@/shared/components/ServiceCards/ServiceCards/ServiceCards.stories";
 import DescriptionHorizontal from "@/shared/components/DescriptionHorizontal/DescriptionHorizontal";
 import { listTextHorizontal } from "@/shared/components/DescriptionHorizontal/DescriptionHorizontal.stories";
 import CallTruck from "@/shared/components/CallTruck/CallTruck/CallTruck";
 import { listCardCall } from "@/shared/components/CallTruck/CallTruck/CallTruck.stories";
 import Benefits from "@/shared/components/Benefits/Benefits";
-import { listBenefits } from "@/widgets/listBenefits/listBenefits";
 import Footer from "@/widgets/Footer/Footer";
+import { getHomeData } from "@/utils/api/api";
 
-export default function Home() {
+export default async function Home() {
+  const data = await getHomeData();
+  console.log(data);
   return (
     <div className={styles.page}>
       <Header />
-      <TopBanner
-        title="Быстрая, надежная и безопасная эвакуация автомобилей!"
-        description="Эвакуация автомобилей по Сыктывкару и Республике Коми"
-      />
+      <TopBanner title={data.home.title} description={data.home.text} />
       <RunningLine text="Все услуги службы эвакуации" />
-      <ServiceCards
-        listCards={listCards}
-        title="Какие проблемы мы решаем"
-        description="Неважно, попали ли вы в ДТП, сломались на трассе или просто хотите перегнать автомобиль — мы обеспечим безопасную транспортировку с гарантией сохранности."
-      />
-      <DescriptionHorizontal
-        title="Круглосуточный эвакуатор в Сыктывкаре и Республике Коми"
-        listTextHorizontal={listTextHorizontal}
-      />
+      {data.home.blocks.map((item) => {
+        if (
+          item.__typename === "ComponentEvaKomiServiceCards" &&
+          item.variant === "services"
+        ) {
+          return (
+            <ServiceCards
+              key={item.title}
+              title={item.title}
+              description={item.description}
+              listCards={item.list.map((card) => {
+                return {
+                  titleCard: card.title,
+                  descriptionCard: card.description,
+                  size: card.size?.toUpperCase(),
+                  imageCard: card.image.url,
+                };
+              })}
+            />
+          );
+        }
+        if (item.__typename === "ComponentEvaKomiText") {
+          return (
+            <DescriptionHorizontal
+              key={item.title}
+              title={item.title}
+              listTextHorizontal={item.content}
+            />
+          );
+        }
+        if (
+          item.__typename === "eva-komi.service-cards" &&
+          item.variant === "advantages"
+        ) {
+          return (
+            <Benefits
+              key={item.id}
+              title={item.title}
+              description={item.description}
+              listBenefits={item.list.map((card) => {
+                return {
+                  titleCard: card.title,
+                  descriptionCard: card.description,
+                };
+              })}
+            />
+          );
+        }
+        return null;
+      })}
+
       <CallTruck
         listCardCall={listCardCall}
         title="Как вызвать эвакуатор"
         description="Также вы можете задать свой вопрос, получить консультацию,  узнать текущие цены и акции."
       />
-      <Benefits
-        title="Почему лучше работать с нами"
-        description="Наша команда профессиональных водителей готова прийти на помощь 24 часа в сутки, 7 дней в неделю"
-        listBenefits={listBenefits}
-      />
+
       <Footer />
     </div>
   );

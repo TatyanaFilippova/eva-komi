@@ -1,10 +1,9 @@
+"use client";
 import styles from "./styles.module.scss";
 
 interface DescriptionHorizontalProps {
   title: string;
-  listTextHorizontal: {
-    title: string;
-  }[];
+  listTextHorizontal: string;
 }
 
 function DescriptionHorizontal({
@@ -15,11 +14,7 @@ function DescriptionHorizontal({
     <div className={styles.container}>
       <div className={styles.title}>{title}</div>
       <div className={styles.shell}>
-        {listTextHorizontal.map((text) => (
-          <div key={text.title} className={styles.description}>
-            {text.title}
-          </div>
-        ))}
+        <div className={styles.description}>{listTextHorizontal}</div>
       </div>
     </div>
   );

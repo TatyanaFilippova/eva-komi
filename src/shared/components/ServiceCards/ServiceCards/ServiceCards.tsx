@@ -1,3 +1,4 @@
+"use client";
 import Card, { CardProps } from "@/shared/components/ServiceCards/Card/Card";
 import HeadingSection from "@/shared/components/HeadingSection/HeadingSection";
 import styles from "./styles.module.scss";

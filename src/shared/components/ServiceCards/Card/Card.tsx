@@ -3,10 +3,10 @@ import styles from "./styles.module.scss";
 export interface CardProps {
   titleCard: string;
   descriptionCard: string;
-  descriptionSecondCard: string;
+  descriptionSecondCard?: string;
   imageCard: string;
   size: string;
-  id: number;
+  id?: number;
 }
 
 const Card = ({

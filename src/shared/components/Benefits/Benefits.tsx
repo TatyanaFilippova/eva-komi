@@ -1,3 +1,4 @@
+"use client";
 import HeadingSection from "@/shared/components/HeadingSection/HeadingSection";
 import CardBenefit, {
   CardBenefitsProps,

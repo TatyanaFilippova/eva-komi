@@ -1,3 +1,4 @@
+"use client";
 import styles from "./styles.module.scss";
 import menu from "../../shared/assets/images/menu.png";
 import Link from "next/link";
