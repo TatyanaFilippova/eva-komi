@@ -16,6 +16,7 @@ interface Result {
         size: string;
         title: string;
         sort: number;
+        id: string;
         image: {
           url: string;
         };
@@ -44,7 +45,7 @@ export const document = gql`
             description
             size
             title
-
+            id
             sort
             image {
               url

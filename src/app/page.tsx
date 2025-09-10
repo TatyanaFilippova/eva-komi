@@ -4,7 +4,6 @@ import TopBanner from "@/shared/components/TopBanner/TopBanner";
 import RunningLine from "@/shared/components/RunningLine/RunningLine";
 import ServiceCards from "@/shared/components/ServiceCards/ServiceCards/ServiceCards";
 import DescriptionHorizontal from "@/shared/components/DescriptionHorizontal/DescriptionHorizontal";
-import { listTextHorizontal } from "@/shared/components/DescriptionHorizontal/DescriptionHorizontal.stories";
 import CallTruck from "@/shared/components/CallTruck/CallTruck/CallTruck";
 import { listCardCall } from "@/shared/components/CallTruck/CallTruck/CallTruck.stories";
 import Benefits from "@/shared/components/Benefits/Benefits";
@@ -19,14 +18,14 @@ export default async function Home() {
       <Header />
       <TopBanner title={data.home.title} description={data.home.text} />
       <RunningLine text="Все услуги службы эвакуации" />
-      {data.home.blocks.map((item) => {
+      {data.home.blocks.map((item, index) => {
         if (
           item.__typename === "ComponentEvaKomiServiceCards" &&
           item.variant === "services"
         ) {
           return (
             <ServiceCards
-              key={item.title}
+              key={index}
               title={item.title}
               description={item.description}
               listCards={item.list.map((card) => {
@@ -43,25 +42,26 @@ export default async function Home() {
         if (item.__typename === "ComponentEvaKomiText") {
           return (
             <DescriptionHorizontal
-              key={item.title}
+              key={index}
               title={item.title}
               listTextHorizontal={item.content}
             />
           );
         }
         if (
-          item.__typename === "eva-komi.service-cards" &&
+          item.__typename === "ComponentEvaKomiServiceCards" &&
           item.variant === "advantages"
         ) {
           return (
             <Benefits
-              key={item.id}
+              key={index}
               title={item.title}
               description={item.description}
               listBenefits={item.list.map((card) => {
                 return {
                   titleCard: card.title,
                   descriptionCard: card.description,
+                  imageCard: card.image.url,
                 };
               })}
             />

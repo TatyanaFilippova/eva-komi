@@ -14,14 +14,14 @@ const ServiceCards = ({ listCards, title, description }: ServiceCardProps) => {
     <div className={styles.container}>
       <HeadingSection title={title} description={description} />
       <div className={styles.containerCards}>
-        {listCards.map((card) => (
+        {listCards.map((card, index) => (
           <Card
             titleCard={card.titleCard}
             descriptionCard={card.descriptionCard}
             descriptionSecondCard={card.descriptionSecondCard}
             imageCard={card.imageCard}
             size={card.size}
-            key={card.id}
+            key={index}
             id={card.id}
           />
         ))}
