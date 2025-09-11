@@ -2,8 +2,10 @@
 import styles from "./styles.module.scss";
 import menu from "../../shared/assets/images/menu.png";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const Header = () => {
+  const pathname = usePathname();
   return (
     <div className={styles.border_bottom}>
       <div className={styles.header}>
@@ -14,11 +16,29 @@ const Header = () => {
           </div>
         </div>
         <div className={styles.container_menu}>
-          <Link href="/#">Главная</Link>
-          <Link href="/services">Список услуг</Link>
-          <Link href="/#">Вызвать эвакуатор</Link>
-          <Link href="/#">Цены</Link>
-          <Link href="/#">О компании</Link>
+          <Link
+            href="/#"
+            className={pathname === "/" ? styles.active_link : styles.active}
+          >
+            Главная
+          </Link>
+          <Link
+            href="/services"
+            className={
+              pathname === "/services" ? styles.active_link : styles.active
+            }
+          >
+            Список услуг
+          </Link>
+          <Link href="/#" className={styles.active}>
+            Вызвать эвакуатор
+          </Link>
+          <Link href="/#" className={styles.active}>
+            Цены
+          </Link>
+          <Link href="/#" className={styles.active}>
+            О компании
+          </Link>
         </div>
         <div className={styles.shell}>
           <div className={styles.number}>+7(912)864-01-11</div>

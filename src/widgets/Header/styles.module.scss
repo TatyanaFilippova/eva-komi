@@ -1,14 +1,14 @@
 @import "./../../shared/styles/mixins";
 
 .border_bottom {
-  border-bottom: 1px solid $color-grey;
+  border-bottom: 1px solid #CCCCCC;
 }
 
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-bottom: 12px;
+  height: 80px;
 
   @include layout;
   @media (max-width: $tablet) {
@@ -57,9 +57,27 @@
   font-weight: $text-medium;
   font-size: 16px;
   color: #000000;
+  height: 100%;
+  align-items: center;
 
   :nth-child(3) {
     font-weight: $text-extra-bold;
+  }
+
+  :nth-child(3) {
+    color: #cccccc;
+    cursor: default;
+    pointer-events: none;
+  }
+  :nth-child(4) {
+    color: #cccccc;
+    cursor: default;
+    pointer-events: none;
+  }
+  :nth-child(5) {
+    color: #cccccc;
+    cursor: default;
+    pointer-events: none;
   }
 
   @media (max-width: $tablet) {
@@ -68,6 +86,19 @@
   @media (max-width: $mobile) {
     display: none;
   }
+}
+
+.active {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.active_link{
+  height: 100%;
+  display: flex;
+  align-items: center;
+  border-bottom: 4px solid $color-orange-primary !important;
 }
 
 .number {

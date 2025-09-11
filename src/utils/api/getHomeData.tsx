@@ -1,27 +1,12 @@
 import { gql, GraphQLClient } from "graphql-request";
+import { Blocks } from "@/shared/components/BlockConstructor/BlockConstructor";
 
 interface Result {
   home: {
     title: string;
     text: string;
-    blocks: {
-      __typename: string;
-      title: string;
-      content: string;
-      description: string;
-      id: string;
-      variant: string;
-      list: {
-        description: string;
-        size: string;
-        title: string;
-        sort: number;
-        id: string;
-        image: {
-          url: string;
-        };
-      }[];
-    }[];
+    subtitle: string;
+    blocks: Blocks;
   };
 }
 

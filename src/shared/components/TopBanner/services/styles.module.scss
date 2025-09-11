@@ -84,6 +84,13 @@
   }
 }
 
+.subtitle{
+  font-size: 32px;
+  font-weight: $text-regular-text;
+  font-variation-settings: 'opsz' 600;
+
+}
+
 .shellContacts {
   display: flex;
   flex-direction: column;

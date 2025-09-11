@@ -1,4 +1,4 @@
-import TopBanner from "@/shared/components/TopBanner/TopBanner";
+import TopBanner from "@/shared/components/TopBanner/home/TopBanner";
 
 export default {
   title: "topBanner",

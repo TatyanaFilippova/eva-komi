@@ -1,35 +1,31 @@
 import styles from "./styles.module.scss";
+import Link from "next/link";
 
 export interface CardServiceProps {
   titleCard: string;
   descriptionCard: string;
   imageCard: string;
-  descriptionSecondCard?: string;
-  buttonCard: string;
-  serviceText: string;
-  index: number;
+  link: string;
+  index?: number;
 }
 
 const Card = ({
-  buttonCard,
+  link,
   imageCard,
-  serviceText,
   titleCard,
   descriptionCard,
-  descriptionSecondCard,
 }: CardServiceProps) => {
   return (
     <div className={styles.container}>
       <div>
         <div className={styles.title}>{titleCard}</div>
         <div className={styles.description}>{descriptionCard}</div>
-        {descriptionSecondCard && (
-          <div className={styles.description}>{descriptionSecondCard}</div>
-        )}
       </div>
       <div className={styles.shell}>
-        <button className={styles.button}>{buttonCard}</button>
-        <div className={styles.serviceText}>{serviceText}</div>
+        <Link href={link} className={styles.button}>
+          Подробнее
+        </Link>
+        <div className={styles.serviceText}>вызвать эвакуатор</div>
       </div>
 
       <img src={imageCard} className={styles.imageCard} />

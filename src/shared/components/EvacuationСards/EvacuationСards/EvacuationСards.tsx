@@ -1,3 +1,4 @@
+"use client";
 import HeadingSection from "@/shared/components/HeadingSection/HeadingSection";
 import Card, {
   CardServiceProps,
@@ -10,7 +11,7 @@ interface EvacuationCardsProps {
   listEvacuationCards: CardServiceProps[];
 }
 
-const EvacuationСards = ({
+const EvacuationCards = ({
   title,
   description,
   listEvacuationCards,
@@ -27,11 +28,9 @@ const EvacuationСards = ({
             <Card
               titleCard={card.titleCard}
               descriptionCard={card.descriptionCard}
-              descriptionSecondCard={card.descriptionSecondCard}
-              buttonCard={card.buttonCard}
+              link={card.link ? card.link : "#"}
               imageCard={card.imageCard}
               index={card.index}
-              serviceText={card.serviceText}
             />
           </div>
         ))}
@@ -40,4 +39,4 @@ const EvacuationСards = ({
   );
 };
 
-export default EvacuationСards;
+export default EvacuationCards;
