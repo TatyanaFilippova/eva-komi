@@ -4,6 +4,11 @@
   @include layout;
   margin-bottom: 200px;
   margin-top: 170px;
+
+  @media (max-width: $mobile) {
+    margin-top: 100px;
+    margin-bottom: 100px;
+  }
 }
 
 .containerCards {
@@ -11,4 +16,8 @@
   flex-direction: column;
   gap: 50px;
   margin-top: 80px;
+
+  @media (max-width: $tablet) {
+    gap: 100px;
+  }
 }

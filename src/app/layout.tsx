@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import style from "./_globals.module.scss";
+import "./_globals.scss";
 import { ReactNode } from "react";
 
 export const metadata: Metadata = {
@@ -21,7 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={style.reset}>{children}</body>
+      <body>{children}</body>
     </html>
   );
 }

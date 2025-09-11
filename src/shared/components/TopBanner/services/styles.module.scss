@@ -78,6 +78,8 @@
 .description {
   font-size: 20px;
   font-weight: $text-regular-text;
+  font-variation-settings: 'opsz' 600;
+
 
   @media (max-width: $mobile) {
     margin-bottom: 80px;
@@ -96,4 +98,9 @@
   flex-direction: column;
   width: 100%;
   align-items: self-end;
+
+  @media (max-width: $mobile) {
+    align-items: flex-start;
+  }
+
 }

@@ -4,7 +4,7 @@
 
 /* Reset and base styles  */
 
-:where(.reset) {
+
   * {
     padding: 0;
     margin: 0;
@@ -125,4 +125,4 @@
   input[type="file"] {
     max-width: 100%;
   }
-}
+
