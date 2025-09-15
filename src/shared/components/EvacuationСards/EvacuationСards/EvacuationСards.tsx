@@ -21,10 +21,7 @@ const EvacuationCards = ({
       <HeadingSection title={title} description={description} />
       <div className={styles.containerCards}>
         {listEvacuationCards.map((card, index) => (
-          <div
-            key={card.index}
-            style={{ marginLeft: index % 2 ? "auto" : "0" }}
-          >
+          <div key={index} style={{ marginLeft: index % 2 ? "auto" : "0" }}>
             <Card
               titleCard={card.titleCard}
               descriptionCard={card.descriptionCard}
