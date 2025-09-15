@@ -1,0 +1,15 @@
+@import "./../../styles/mixins";
+
+.wrapper{
+  display: flex;
+  justify-content: center;
+}
+
+.title {
+  width: 70%;
+  margin-top: 150px;
+  font-size: 40px;
+  font-weight: $text-medium;
+  font-variation-settings: "opsz" 500;
+  text-align: center;
+}

@@ -9,6 +9,8 @@
 
 .buttonCardCall {
   width: 230px;
+  flex-wrap: wrap;
+  white-space: nowrap;
 
   @media (max-width: $tablet) {
     width: 190px;
@@ -33,7 +35,7 @@
   padding-top: 4px;
 }
 
-.method{
+.method {
   font-weight: $text-black-text;
   font-size: 32px;
   padding-bottom: 38px;
@@ -48,7 +50,7 @@
   }
 }
 
-.buttonCardCall{
+.buttonCardCall {
   font-size: 16px;
   padding: 10px 70px;
   background-color: $color-grey-dark;

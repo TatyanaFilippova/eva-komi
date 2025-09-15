@@ -10,7 +10,6 @@ import BlockConstructor from "@/shared/components/BlockConstructor/BlockConstruc
 
 export default async function Home() {
   const data = await getHomeData();
-  console.log(data);
   return (
     <div className={styles.page}>
       <Header />
@@ -20,7 +19,7 @@ export default async function Home() {
       <CallTruck
         listCardCall={listCardCall}
         title="Как вызвать эвакуатор"
-        description="Также вы можете задать свой вопрос, получить консультацию,  узнать текущие цены и акции."
+        description="Также вы можете задать свой вопрос, получить консультацию, узнать текущие цены и акции."
       />
       <Footer />
     </div>

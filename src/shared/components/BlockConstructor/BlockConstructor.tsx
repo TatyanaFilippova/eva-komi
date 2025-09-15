@@ -3,6 +3,7 @@ import ServiceCards from "@/shared/components/ServiceCards/ServiceCards/ServiceC
 import DescriptionHorizontal from "@/shared/components/DescriptionHorizontal/DescriptionHorizontal";
 import Benefits from "@/shared/components/Benefits/Benefits";
 import EvacuationСards from "@/shared/components/EvacuationСards/EvacuationСards/EvacuationСards";
+import BlockTextServices from "@/shared/components/BlockTextServices/BlockTextServices";
 
 export type Blocks = {
   __typename: string;
@@ -98,6 +99,9 @@ const BlockConstructor = ({ blocks }: BlockConstructorProps) => (
             })}
           />
         );
+      }
+      if (item.__typename === "ComponentEvaKomiBigCenterText") {
+        return <BlockTextServices title={item.title} key={index} />;
       }
       return null;
     })}

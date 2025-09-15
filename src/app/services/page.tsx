@@ -23,7 +23,7 @@ export default async function Home() {
       <CallTruck
         listCardCall={listCardCall}
         title="Как вызвать эвакуатор"
-        description="Также вы можете задать свой вопрос, получить консультацию,  узнать текущие цены и акции."
+        description="Также вы можете задать свой вопрос, получить консультацию, узнать текущие цены и акции."
       />
       <Footer />
     </>
