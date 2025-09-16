@@ -5,6 +5,7 @@ import fonBanner from "./../../../assets/images/fonBanner.png";
 import Contacts from "./../../Contacts/Contacts";
 import phon from "./../../../assets/images/phon.svg";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 interface TopBannerHomeProps {
   title: string;
@@ -31,11 +32,12 @@ const TopBannerHome = ({ heading, description, title }: TopBannerHomeProps) => {
       </div>
       <div className={styles.shellContacts}>
         <Contacts />
-        <img
-          src={phon.src}
+        <Link
+          href="tel:8 912 864 01 11"
           className={scrolled ? styles.imageScrolled : styles.image}
-          alt="phon"
-        />
+        >
+          <img src={phon.src} alt="phon" />
+        </Link>
       </div>
     </div>
   );
