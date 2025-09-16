@@ -6,12 +6,14 @@ export interface CardCallProps {
   method: string;
   processButton: string;
   id: number;
+  href: string;
 }
 
 const CardCall = ({
   titleCard,
   descriptionCard,
   method,
+  href,
   processButton,
 }: CardCallProps) => {
   return (
@@ -19,7 +21,9 @@ const CardCall = ({
       <div className={styles.title}>{titleCard}</div>
       <div className={styles.description}>{descriptionCard}</div>
       <div className={styles.method}>{method}</div>
-      <button className={styles.buttonCardCall}>{processButton}</button>
+      <a href={href} className={styles.buttonCardCall}>
+        {processButton}
+      </a>
     </div>
   );
 };

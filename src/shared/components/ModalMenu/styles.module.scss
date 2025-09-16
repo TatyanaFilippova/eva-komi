@@ -14,6 +14,11 @@
   width: 45px;
   height: 45px;
   margin-top: 0;
+
+  &:active {
+    top: 1px;
+    position: relative;
+  }
 }
 
 .pointImg {
@@ -22,11 +27,11 @@
 }
 
 .wrapper {
- display: flex;
+  display: flex;
   justify-content: space-between;
 }
 
-.titleWrapper{
+.titleWrapper {
   display: flex;
   flex-direction: column;
   gap: 20px;

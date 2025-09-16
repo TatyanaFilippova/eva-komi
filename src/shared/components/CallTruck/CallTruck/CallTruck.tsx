@@ -18,6 +18,7 @@ const CallTruck = ({ listCardCall, title, description }: CallTruckProps) => {
       <div className={styles.container}>
         {listCardCall.map((card) => (
           <CardCall
+            href={card.href}
             titleCard={card.titleCard}
             descriptionCard={card.descriptionCard}
             method={card.method}
