@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import styles from "./styles.module.scss";
 
 export interface CardCallProps {
@@ -21,9 +22,13 @@ const CardCall = ({
       <div className={styles.title}>{titleCard}</div>
       <div className={styles.description}>{descriptionCard}</div>
       <div className={styles.method}>{method}</div>
-      <a href={href} className={styles.buttonCardCall}>
+      <motion.a
+        href={href}
+        className={styles.buttonCardCall}
+        whileTap={{ scale: 0.95 }}
+      >
         {processButton}
-      </a>
+      </motion.a>
     </div>
   );
 };

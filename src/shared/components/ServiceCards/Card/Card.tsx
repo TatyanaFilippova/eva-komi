@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import styles from "./styles.module.scss";
 
 export interface CardProps {
@@ -17,7 +18,12 @@ const Card = ({
   size,
 }: CardProps) => {
   return (
-    <div className={styles.container + " " + styles[`container-${size}`]}>
+    <motion.div
+      className={styles.container + " " + styles[`container-${size}`]}
+      initial={{ opacity: 0.8, scale: 0.7 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      viewport={{ once: true }}
+    >
       <div className={styles.title}>{titleCard}</div>
       <div className={styles.shell}>
         <div>
@@ -26,7 +32,7 @@ const Card = ({
         </div>
         <img src={imageCard} className={styles.image} />
       </div>
-    </div>
+    </motion.div>
   );
 };
 

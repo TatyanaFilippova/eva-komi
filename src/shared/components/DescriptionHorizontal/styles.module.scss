@@ -9,7 +9,7 @@
   margin-top: 200px;
 
   @media (max-width: $tablet) {
-   margin-top: 150px;
+    margin-top: 150px;
   }
   @media (max-width: $mobile) {
     margin-top: 100px;
@@ -21,7 +21,6 @@
 .title {
   @include title-h2;
   width: 50%;
-
 
   @media (max-width: $mobile) {
     width: 100%;
@@ -41,5 +40,3 @@
     text-align: left;
   }
 }
-
-
