@@ -42,7 +42,7 @@ const Header = () => {
           >
             Список услуг
           </Link>
-          <Link href="/#" className={styles.active}>
+          <Link href="#CallTruck" className={styles.active}>
             Вызвать эвакуатор
           </Link>
           <Link href="/#" className={styles.active}>
