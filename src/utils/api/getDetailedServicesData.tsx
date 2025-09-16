@@ -13,8 +13,12 @@ interface Result {
 }
 
 export const document = gql`
-  query Services {
-    services {
+  query ServiceDetail ($slug: String) {
+    services (filters: {
+      slug: {
+        eq: $slug
+      }
+    }) {
       title
       subTitle
       metaTitle
