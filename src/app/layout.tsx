@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "./_globals.scss";
 import { ReactNode } from "react";
 import Providers from "./../shared/components/progressBar/ProgressBar";
+import Provider from "@/app/Provider";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -23,7 +24,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Providers> {children} </Providers>
+        <Providers>
+          <Provider>{children}</Provider>
+        </Providers>
       </body>
     </html>
   );

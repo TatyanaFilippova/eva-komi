@@ -3,9 +3,19 @@ import styles from "./styles.module.scss";
 import menu from "../../shared/assets/images/menu.png";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
+import ModalMenu from "@/shared/components/ModalMenu/ModalMenu";
 
 const Header = () => {
   const pathname = usePathname();
+  const [modalIsOpen, setIsOpen] = useState(false);
+  function openModal() {
+    setIsOpen(true);
+  }
+  useEffect(() => {
+    setIsOpen(false);
+  }, [pathname]);
+
   return (
     <div className={styles.border_bottom}>
       <div className={styles.header}>
@@ -42,9 +52,14 @@ const Header = () => {
         </div>
         <div className={styles.shell}>
           <div className={styles.number}>+7(912)864-01-11</div>
-          <img src={menu.src} className={styles.icon_menu} />
+          <img
+            src={menu.src}
+            className={styles.icon_menu}
+            onClick={openModal}
+          />
         </div>
       </div>
+      <ModalMenu modalIsOpen={modalIsOpen} setIsOpen={setIsOpen} />
     </div>
   );
 };
