@@ -3,7 +3,7 @@ name: Deploy Create React App
 on:
   push:
     branches:
-      - main  # Укажите ветку, на которую будет происходить пуш
+      - master  # Укажите ветку, на которую будет происходить пуш
 
 jobs:
   build:
