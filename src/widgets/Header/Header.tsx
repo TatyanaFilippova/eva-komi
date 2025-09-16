@@ -20,7 +20,9 @@ const Header = () => {
     <div className={styles.border_bottom}>
       <div className={styles.header}>
         <div className={styles.container_promo}>
-          <div className={styles.promo}>ЭваКоми</div>
+          <Link href="/" className={styles.promo}>
+            ЭваКоми
+          </Link>
           <div className={styles.promo_description}>
             Служба эвакуации в Сыктывкаре и Республике Коми
           </div>

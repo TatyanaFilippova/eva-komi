@@ -25,7 +25,9 @@ const Card = ({
         <Link href={link} className={styles.button}>
           Подробнее
         </Link>
-        <div className={styles.serviceText}>вызвать эвакуатор</div>
+        <Link href="#CallTruck" className={styles.serviceText}>
+          вызвать эвакуатор
+        </Link>
       </div>
 
       <img src={imageCard} className={styles.imageCard} />

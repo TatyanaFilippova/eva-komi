@@ -7,6 +7,16 @@ import Footer from "@/widgets/Footer/Footer";
 import TopBannerHome from "@/shared/components/TopBanner/home/TopBanner";
 import { getHomeData } from "@/utils/api/getHomeData";
 import BlockConstructor from "@/shared/components/BlockConstructor/BlockConstructor";
+import { Metadata } from "next";
+
+export const generateMetadata = async (): Promise<Metadata> => {
+  const data = await getHomeData();
+
+  return {
+    title: data.home.metaTitle,
+    description: data.home.metaDescription,
+  };
+};
 
 export default async function Home() {
   const data = await getHomeData();

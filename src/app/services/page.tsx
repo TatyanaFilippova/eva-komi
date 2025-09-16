@@ -6,10 +6,19 @@ import BlockConstructor from "@/shared/components/BlockConstructor/BlockConstruc
 import CallTruck from "@/shared/components/CallTruck/CallTruck/CallTruck";
 import { listCardCall } from "@/shared/components/CallTruck/CallTruck/CallTruck.stories";
 import Footer from "@/widgets/Footer/Footer";
+import { Metadata } from "next";
+
+export const generateMetadata = async (): Promise<Metadata> => {
+  const data = await getServicesData();
+
+  return {
+    title: data.servicesBreeding.metaTitle,
+    description: data.servicesBreeding.metaDescription,
+  };
+};
 
 export default async function Home() {
   const data = await getServicesData();
-  console.log(data);
   return (
     <>
       <Header />

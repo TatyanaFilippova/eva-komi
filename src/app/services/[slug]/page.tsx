@@ -6,6 +6,21 @@ import BlockConstructor from "@/shared/components/BlockConstructor/BlockConstruc
 import CallTruck from "@/shared/components/CallTruck/CallTruck/CallTruck";
 import { listCardCall } from "@/shared/components/CallTruck/CallTruck/CallTruck.stories";
 import Footer from "@/widgets/Footer/Footer";
+import { Metadata } from "next";
+
+export const generateMetadata = async ({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> => {
+  const { slug } = await params;
+  const data = await getDetailedServicesData(slug);
+
+  return {
+    title: data.services[0].metaTitle,
+    description: data.services[0].metaDescription,
+  };
+};
 
 const DetailedServices = async ({
   params,

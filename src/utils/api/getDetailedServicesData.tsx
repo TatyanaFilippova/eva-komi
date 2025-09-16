@@ -5,6 +5,8 @@ interface Result {
   services: {
     title: string;
     subTitle: string;
+    metaTitle: string;
+    metaDescription: string;
     interactiveText: string;
     blocks: Blocks;
   }[];
@@ -15,6 +17,8 @@ export const document = gql`
     services {
       title
       subTitle
+      metaTitle
+      metaDescription
       interactiveText
       blocks {
         ... on ComponentEvaKomiBigCenterText {

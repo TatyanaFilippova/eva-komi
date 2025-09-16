@@ -5,6 +5,8 @@ interface Result {
   home: {
     title: string;
     text: string;
+    metaTitle: string;
+    metaDescription: string;
     subtitle: string;
     blocks: Blocks;
   };
@@ -13,6 +15,8 @@ interface Result {
 export const document = gql`
   query Home {
     home {
+      metaTitle
+      metaDescription
       text
       title
       blocks {

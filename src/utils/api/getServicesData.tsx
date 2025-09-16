@@ -5,6 +5,8 @@ interface Result {
   servicesBreeding: {
     title: string;
     text: string;
+    metaTitle: string;
+    metaDescription: string;
     subtitle: string;
     blocks: Blocks;
   };
@@ -15,6 +17,8 @@ export const document = gql`
     servicesBreeding {
       text
       subtitle
+      metaTitle
+      metaDescription
       title
       blocks {
         ... on ComponentEvaKomiBigCenterText {
