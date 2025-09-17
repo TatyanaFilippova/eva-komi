@@ -11,6 +11,9 @@ const customStyles = {
     right: "0",
     bottom: "0",
   },
+  overlay: {
+    zIndex: 9999,
+  },
 };
 
 const links = [

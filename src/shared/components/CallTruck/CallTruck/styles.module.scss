@@ -18,8 +18,10 @@
   gap: 166px;
   justify-content: center;
 
+
+
   @media (max-width: $tablet) {
-    gap: 70px;
+    gap: 40px;
   }
   @media (max-width: $mobile) {
     flex-direction: column;

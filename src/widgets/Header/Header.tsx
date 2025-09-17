@@ -53,7 +53,9 @@ const Header = () => {
           </Link>
         </div>
         <div className={styles.shell}>
-          <div className={styles.number}>+7(912)864-01-11</div>
+          <Link href="tel:8 912 864 01 11 " className={styles.number}>
+            +7(912)864-01-11
+          </Link>
           <img
             src={menu.src}
             className={styles.icon_menu}
