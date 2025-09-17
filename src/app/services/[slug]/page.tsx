@@ -6,6 +6,7 @@ import CallTruck from "@/shared/components/CallTruck/CallTruck/CallTruck";
 import { listCardCall } from "@/shared/components/CallTruck/CallTruck/CallTruck.stories";
 import Footer from "@/widgets/Footer/Footer";
 import { Metadata } from "next";
+import { gql, GraphQLClient } from "graphql-request";
 
 export const generateMetadata = async ({
   params,
@@ -19,6 +20,23 @@ export const generateMetadata = async ({
     title: data.services[0].metaTitle,
     description: data.services[0].metaDescription,
   };
+};
+
+const endpoint = "https://cms.evakuator-service11.ru/graphql";
+const client = new GraphQLClient(endpoint);
+
+export const generateStaticParams = async () => {
+  const data = await client.request<any>(gql`
+    query Slugs {
+      services {
+        slug
+      }
+    }
+  `);
+
+  return data.services.map((item: any) => ({
+    slug: item.slug,
+  }));
 };
 
 const DetailedServices = async ({
@@ -43,5 +61,7 @@ const DetailedServices = async ({
     </div>
   );
 };
+
+// export const dynamic = "force-dynamic"
 
 export default DetailedServices;
