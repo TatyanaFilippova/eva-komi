@@ -1,6 +1,5 @@
 import TopBanner from "@/shared/components/TopBanner/services/TopBanner";
 import Header from "@/widgets/Header/Header";
-import RunningLine from "@/shared/components/RunningLine/RunningLine";
 import { getDetailedServicesData } from "@/utils/api/getDetailedServicesData";
 import BlockConstructor from "@/shared/components/BlockConstructor/BlockConstructor";
 import CallTruck from "@/shared/components/CallTruck/CallTruck/CallTruck";
@@ -33,12 +32,7 @@ const DetailedServices = async ({
   return (
     <div>
       <Header />
-      <TopBanner
-        title={services.title}
-        description={services.subTitle}
-        subtitle=""
-      />
-      <RunningLine text={services.interactiveText} />
+      <TopBanner title={services.title} description={services.subTitle} />
       <BlockConstructor blocks={services.blocks} />
       <CallTruck
         listCardCall={listCardCall}

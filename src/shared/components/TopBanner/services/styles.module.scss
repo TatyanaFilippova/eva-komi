@@ -4,18 +4,11 @@
 .container {
   display: flex;
   flex-direction: column;
-  height: 700px;
   width: 100%;
   position: relative;
   justify-content: center;
 
   @include layout;
-  @media (max-width: $tablet) {
-    height: 600px;
-  }
-  @media (max-width: $mobile) {
-    height: 500px;
-  }
 }
 
 .fonBanner {
@@ -61,7 +54,7 @@
     width: 60%;
   }
   @media (max-width: $mobile) {
-    margin-top: 300px;
+    margin-top: 220px;
     width: 90%;
   }
 }
@@ -78,19 +71,22 @@
 .description {
   font-size: 20px;
   font-weight: $text-regular-text;
-  font-variation-settings: 'opsz' 600;
-
+  font-variation-settings: "opsz" 600;
 
   @media (max-width: $mobile) {
     margin-bottom: 80px;
   }
 }
 
-.subtitle{
+.subtitle {
   font-size: 32px;
   font-weight: $text-regular-text;
-  font-variation-settings: 'opsz' 600;
+  font-variation-settings: "opsz" 600;
 
+  @media (max-width: $mobile) {
+
+    font-size: 26px;
+  }
 }
 
 .shellContacts {
@@ -102,5 +98,4 @@
   @media (max-width: $mobile) {
     align-items: flex-start;
   }
-
 }

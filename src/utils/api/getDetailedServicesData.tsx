@@ -7,7 +7,7 @@ interface Result {
     subTitle: string;
     metaTitle: string;
     metaDescription: string;
-    interactiveText: string;
+    interactiveText?: string;
     blocks: Blocks;
   }[];
 }

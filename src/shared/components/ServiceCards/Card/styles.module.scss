@@ -17,13 +17,12 @@
     position: absolute;
     right: 40px;
     top: 130px;
-    object-fit: cover;
 
     @media (max-width: $tablet) {
       top: 170px;
     }
     @media (max-width: $mobile) {
-      right: -100px;
+      right: -60px;
       top: 170px;
     }
   }
@@ -45,7 +44,6 @@
   }
   .image {
     margin-right: 60px;
-    object-fit: cover;
     position: absolute;
     top: 130px;
     right: 20px;
@@ -56,9 +54,10 @@
       top: 170px;
     }
     @media (max-width: $mobile) {
-      right: -100px;
+      right: -60px;
       margin-right: 0;
       top: 170px;
+
     }
   }
 
@@ -79,8 +78,7 @@
 
   .image {
     position: absolute;
-    right: -100px;
-    object-fit: cover;
+    right: -60px;
     top: 130px;
 
     @media (max-width: $tablet) {
@@ -117,14 +115,16 @@
 .image {
   width: 356px;
   height: 202px;
+  padding-bottom: 20px;
+  object-fit: contain;
 
   @media (max-width: $tablet) {
     height: 152px;
     width: 306px;
   }
   @media (max-width: $mobile) {
-    height: 152px;
-    width: 306px;
+    height: 172px;
+    width: 286px;
   }
 }
 

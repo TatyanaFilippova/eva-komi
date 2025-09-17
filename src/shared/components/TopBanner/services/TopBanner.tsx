@@ -8,7 +8,7 @@ interface TopBannerProps {
   title: string;
   heading?: string;
   description: string;
-  subtitle: string;
+  subtitle?: string;
 }
 
 const TopBanner = ({
@@ -23,7 +23,7 @@ const TopBanner = ({
       <img src={carBanner.src} className={styles.carBanner} />
       <div className={styles.shell}>
         {heading && <div className={styles.heading}>{heading}</div>}
-        <div className={styles.subtitle}>{subtitle}</div>
+        {subtitle && <div className={styles.subtitle}>{subtitle}</div>}
         <div className={styles.title}>{title}</div>
         <div className={styles.description}>{description}</div>
       </div>
