@@ -23,6 +23,7 @@ const ServiceCards = ({ listCards, title, description }: ServiceCardProps) => {
             size={card.size}
             key={index}
             id={card.id}
+            link={card.link}
           />
         ))}
       </div>

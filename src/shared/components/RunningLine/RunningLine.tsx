@@ -3,11 +3,14 @@ import { motion } from "motion/react";
 import styles from "./styles.module.scss";
 
 interface RunningLineProps {
-  text: string;
+  text?: string;
   duration?: number;
 }
 
 const RunningLine = ({ text, duration = 30 }: RunningLineProps) => {
+  if (!text) {
+    return null;
+  }
   const content = (
     <>
       <span className={styles.item}>{text}</span>

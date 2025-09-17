@@ -7,6 +7,7 @@ import { listCardCall } from "@/shared/components/CallTruck/CallTruck/CallTruck.
 import Footer from "@/widgets/Footer/Footer";
 import { Metadata } from "next";
 import { gql, GraphQLClient } from "graphql-request";
+import RunningLine from "@/shared/components/RunningLine/RunningLine";
 
 export const generateMetadata = async ({
   params,
@@ -50,7 +51,13 @@ const DetailedServices = async ({
   return (
     <div>
       <Header />
-      <TopBanner title={services.title} description={services.subTitle} />
+      <TopBanner
+        title={services.title}
+        description={services.description}
+        subtitle={services.subTitle}
+        image={services.banner.url}
+      />
+      <RunningLine text={services.interactiveText} />
       <BlockConstructor blocks={services.blocks} />
       <CallTruck
         listCardCall={listCardCall}

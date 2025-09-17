@@ -47,6 +47,7 @@ const BlockConstructor = ({ blocks }: BlockConstructorProps) => (
                 descriptionCard: card.description,
                 size: card.size?.toUpperCase(),
                 imageCard: card.image.url,
+                link: card.link,
               };
             })}
           />

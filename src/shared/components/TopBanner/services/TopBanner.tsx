@@ -9,18 +9,25 @@ interface TopBannerProps {
   heading?: string;
   description: string;
   subtitle?: string;
+  image?: string;
 }
 
 const TopBanner = ({
   heading,
   description,
   title,
+  image,
   subtitle,
 }: TopBannerProps) => {
   return (
     <div className={styles.container}>
       <img src={fonBanner.src} className={styles.fonBanner} />
-      <img src={carBanner.src} className={styles.carBanner} />
+      {image ? (
+        <img src={image} className={styles.carBanner} />
+      ) : (
+        <img src={carBanner.src} className={styles.carBanner} />
+      )}
+
       <div className={styles.shell}>
         {heading && <div className={styles.heading}>{heading}</div>}
         {subtitle && <div className={styles.subtitle}>{subtitle}</div>}

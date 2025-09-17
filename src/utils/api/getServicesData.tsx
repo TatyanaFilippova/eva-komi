@@ -38,7 +38,6 @@ export const document = gql`
             size
             title
             link
-
             sort
             image {
               url

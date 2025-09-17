@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import styles from "./styles.module.scss";
+import Link from "next/link";
 
 export interface CardProps {
   titleCard: string;
@@ -8,6 +9,7 @@ export interface CardProps {
   imageCard: string;
   size: string;
   id?: number;
+  link?: string;
 }
 
 const Card = ({
@@ -16,6 +18,7 @@ const Card = ({
   descriptionSecondCard,
   imageCard,
   size,
+  link,
 }: CardProps) => {
   return (
     <motion.div
@@ -29,6 +32,11 @@ const Card = ({
         <div>
           <div className={styles.description}>{descriptionCard}</div>
           <div className={styles.description}>{descriptionSecondCard}</div>
+          {link && (
+            <Link href={link}>
+              <button className={styles.button}>Перейти</button>
+            </Link>
+          )}
         </div>
         <img src={imageCard} className={styles.image} />
       </div>

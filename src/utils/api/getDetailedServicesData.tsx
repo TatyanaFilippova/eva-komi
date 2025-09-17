@@ -6,23 +6,27 @@ interface Result {
     title: string;
     subTitle: string;
     metaTitle: string;
+    description: string;
     metaDescription: string;
     interactiveText?: string;
+    banner: {
+      url: string;
+    };
     blocks: Blocks;
   }[];
 }
 
 export const document = gql`
-  query ServiceDetail ($slug: String) {
-    services (filters: {
-      slug: {
-        eq: $slug
-      }
-    }) {
+  query ServiceDetail($slug: String) {
+    services(filters: { slug: { eq: $slug } }) {
       title
       subTitle
+      description
       metaTitle
       metaDescription
+      banner {
+        url
+      }
       interactiveText
       blocks {
         ... on ComponentEvaKomiBigCenterText {
