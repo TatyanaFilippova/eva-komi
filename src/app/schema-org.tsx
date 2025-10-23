@@ -4,7 +4,7 @@ const schema = {
   name: "Эвакуатор 24/7 — Сыктывкар и Республика Коми",
   description:
     "Круглосуточные услуги эвакуатора по Сыктывкару и всей Республике Коми. Быстрая подача, аккуратная эвакуация и низкие цены.",
-  url: "https://your-domain.ru",
+  url: "https://evakuator-service11.ru/",
   telephone: "+7 (912) 864-01-11",
   areaServed: {
     "@type": "Place",

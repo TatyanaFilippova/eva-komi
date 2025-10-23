@@ -11,10 +11,10 @@ const Provider = ({ children }: { children: React.ReactNode }) => {
   }, []);
 
   return (
-    <div>
+    <>
       {children}
       <div id="modal"></div>
-    </div>
+    </>
   );
 };
 
