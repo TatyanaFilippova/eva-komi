@@ -8,6 +8,7 @@ import Footer from "@/widgets/Footer/Footer";
 import { Metadata } from "next";
 import { gql, GraphQLClient } from "graphql-request";
 import RunningLine from "@/shared/components/RunningLine/RunningLine";
+import { SchemaOrg } from "@/app/services/[slug]/schema-org";
 
 export const generateMetadata = async ({
   params,
@@ -50,6 +51,11 @@ const DetailedServices = async ({
   const services = data.services[0];
   return (
     <div>
+      <SchemaOrg
+        title={services.title}
+        subtitle={services.subTitle}
+        url={`https://evakuator-service11.ru/services/${slug}/`}
+      />
       <Header />
       <TopBanner
         title={services.title}

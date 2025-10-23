@@ -8,6 +8,7 @@ import TopBannerHome from "@/shared/components/TopBanner/home/TopBanner";
 import { getHomeData } from "@/utils/api/getHomeData";
 import BlockConstructor from "@/shared/components/BlockConstructor/BlockConstructor";
 import { Metadata } from "next";
+import { SchemaOrg } from "@/app/schema-org";
 
 export const generateMetadata = async (): Promise<Metadata> => {
   const data = await getHomeData();
@@ -22,6 +23,7 @@ export default async function Home() {
   const data = await getHomeData();
   return (
     <div className={styles.page}>
+      <SchemaOrg />
       <Header />
       <TopBannerHome title={data.home.title} description={data.home.text} />
       <RunningLine text="Все услуги службы эвакуации" />

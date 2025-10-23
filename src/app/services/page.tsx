@@ -7,6 +7,7 @@ import CallTruck from "@/shared/components/CallTruck/CallTruck/CallTruck";
 import { listCardCall } from "@/shared/components/CallTruck/CallTruck/CallTruck.stories";
 import Footer from "@/widgets/Footer/Footer";
 import { Metadata } from "next";
+import { SchemaOrg } from "@/app/services/schema-org";
 
 export const generateMetadata = async (): Promise<Metadata> => {
   const data = await getServicesData();
@@ -21,6 +22,7 @@ export default async function Home() {
   const data = await getServicesData();
   return (
     <>
+      <SchemaOrg />
       <Header />
       <TopBanner
         title={data.servicesBreeding.title}
