@@ -12,8 +12,9 @@ export function SchemaOrg(props: {
           "@type": "Service",
           name: props.title,
           serviceType: props.subtitle,
+          description: props.subtitle,
           areaServed: {
-            "@type": "City",
+            "@type": "Place", // валидный тип
             name: "Сыктывкар",
           },
           provider: {
@@ -24,26 +25,40 @@ export function SchemaOrg(props: {
               "@type": "PostalAddress",
               addressLocality: "Сыктывкар",
               addressRegion: "Республика Коми",
-              addressCountry: "Россия",
+              addressCountry: "RU",
             },
-            openingHours: "Mo-Su 00:00-23:59",
+            openingHoursSpecification: [
+              {
+                "@type": "OpeningHoursSpecification",
+                dayOfWeek: [
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday",
+                  "Sunday",
+                ],
+                opens: "00:00",
+                closes: "23:59",
+              },
+            ],
           },
-          availableChannel: {
-            "@type": "ServiceChannel",
-            serviceUrl: props.url,
-            availableLanguage: "ru",
-            servicePhone: {
-              "@type": "ContactPoint",
-              telephone: "+7(912)864-01-11",
-              contactType: "customer service",
-              availableLanguage: "ru",
-            },
+          contactPoint: {
+            "@type": "ContactPoint",
+            telephone: "+7(912)864-01-11",
+            contactType: "customer service",
+            availableLanguage: ["Russian"],
           },
-          description: props.subtitle,
-          keywords:
-            "эвакуатор легковых, эвакуатор Сыктывкар, эвакуация авто, помощь на дороге " +
-            props.title +
+          url: props.url,
+          keywords: [
+            "эвакуатор легковых",
+            "эвакуатор Сыктывкар",
+            "эвакуация авто",
+            "помощь на дороге",
+            props.title,
             props.subtitle,
+          ],
         }),
       }}
     />
