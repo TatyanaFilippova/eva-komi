@@ -23,7 +23,7 @@ export default async function Home() {
   const data = await getHomeData();
 
   return (
-    <div className={styles.page} data-version="1.0.0">
+    <div className={styles.page}>
       <SchemaOrg />
       <Header />
       <TopBannerHome title={data.home.title} description={data.home.text} />

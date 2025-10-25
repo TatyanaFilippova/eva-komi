@@ -31,7 +31,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
+      <body data-version="1.0.0">
         <ProgressBar>
           <Analytics />
           <Provider>{children}</Provider>
