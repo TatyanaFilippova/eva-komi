@@ -3,7 +3,7 @@ name: Deploy Create React App
 on:
   push:
     branches:
-      - test  # Укажите ветку, на которую будет происходить пуш
+      - master  # Укажите ветку, на которую будет происходить пуш
 
 jobs:
   build:
@@ -27,7 +27,7 @@ jobs:
       - name: Archive build artifacts
         run: |
           mkdir -p artifacts
-          cp -r out/* artifacts/
+          cp -r .next artifacts/next
 
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
@@ -46,6 +46,11 @@ jobs:
           name: build-artifacts
           path: artifacts/
 
+      - name: Restore .next folder
+        run: |
+          rm -rf .next
+          cp -r artifacts/next .next
+
       - name: Install sshpass
         run: sudo apt-get install -y sshpass  # Установка sshpass для использования пароля
 
@@ -62,6 +67,14 @@ jobs:
           SERVER_PASSWORD: ${{ secrets.PASSWORD }} # Пароль для SSH
         run: |
           sshpass -p "$SERVER_PASSWORD" rsync -avz --delete ./artifacts/ $SERVER_USER@$SERVER_IP:$SERVER_PATH
+
+      - name: Touch restart file
+        env:
+          SSHPASS: ${{ secrets.PASSWORD }}
+        run: |
+          sshpass -e ssh -o StrictHostKeyChecking=no \
+              $SERVER_USER@$SERVER_IP \
+              "touch $SERVER_PATH/tmp/restart.txt"
 
       - name: Clean up after deployment
         run: echo "Deployment completed successfully!"  # Сообщение о завершении развертывания
