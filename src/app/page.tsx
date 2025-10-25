@@ -21,6 +21,8 @@ export const generateMetadata = async (): Promise<Metadata> => {
 
 export default async function Home() {
   const data = await getHomeData();
+  console.log("creating home page");
+
   return (
     <div className={styles.page}>
       <SchemaOrg />
@@ -38,4 +40,6 @@ export default async function Home() {
   );
 }
 
-// export const dynamic = "force-dynamic"
+// export const revalidate = 60;
+
+export const dynamic = "force-dynamic";
