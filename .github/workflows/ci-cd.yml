@@ -65,7 +65,7 @@ jobs:
           SERVER_PATH: /home/d/dmitraay/evakuator-service11/test      # Путь на сервере, куда будут копироваться файлы
           SERVER_PASSWORD: ${{ secrets.PASSWORD }} # Пароль для SSH
         run: |
-          sshpass -p "$SERVER_PASSWORD" rsync -avz --delete ./artifacts/ $SERVER_USER@$SERVER_IP:$SERVER_PATH
+          sshpass -p "$SERVER_PASSWORD" rsync -avz ./artifacts/ $SERVER_USER@$SERVER_IP:$SERVER_PATH
 
       - name: Touch restart file
         env:
