@@ -62,7 +62,7 @@ jobs:
         env:
           SERVER_USER: ${{ secrets.SERVER_USER }}       # Имя пользователя для SSH
           SERVER_IP: ${{ secrets.SERVER_IP }}           # IP-адрес сервера
-          SERVER_PATH: /home/d/dmitraay/evakuator-service11/test      # Путь на сервере, куда будут копироваться файлы
+          SERVER_PATH: /home/d/dmitraay/evakuator-service11/website      # Путь на сервере, куда будут копироваться файлы
           SERVER_PASSWORD: ${{ secrets.PASSWORD }} # Пароль для SSH
         run: |
           sshpass -p "$SERVER_PASSWORD" rsync -avz ./artifacts/ $SERVER_USER@$SERVER_IP:$SERVER_PATH
@@ -75,7 +75,7 @@ jobs:
         run: |
           sshpass -p "$SERVER_PASSWORD" ssh -o StrictHostKeyChecking=no \
               $SERVER_USER@$SERVER_IP \
-              "touch /home/d/dmitraay/evakuator-service11/test/tmp/restart.txt"
+              "touch /home/d/dmitraay/evakuator-service11/website/tmp/restart.txt"
 
       - name: Clean up after deployment
         run: echo "Deployment completed successfully!"  # Сообщение о завершении развертывания

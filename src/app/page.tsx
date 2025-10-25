@@ -21,10 +21,9 @@ export const generateMetadata = async (): Promise<Metadata> => {
 
 export default async function Home() {
   const data = await getHomeData();
-  console.log("creating home page");
 
   return (
-    <div className={styles.page}>
+    <div className={styles.page} data-version="1.0.0">
       <SchemaOrg />
       <Header />
       <TopBannerHome title={data.home.title} description={data.home.text} />
