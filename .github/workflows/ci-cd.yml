@@ -46,10 +46,9 @@ jobs:
           name: build-artifacts
           path: artifacts/
 
-      - name: Restore .next folder
+      - name: Restore .next folder in artifacts
         run: |
-          rm -rf .next
-          cp -r artifacts/next .next
+          cp -r artifacts/next artifacts/.next
 
       - name: Install sshpass
         run: sudo apt-get install -y sshpass  # Установка sshpass для использования пароля
