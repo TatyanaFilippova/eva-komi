@@ -33,6 +33,7 @@ export const document = gql`
           list {
             description
             size
+            link
             title
             id
             sort
