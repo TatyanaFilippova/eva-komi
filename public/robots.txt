@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow:
+Crawl-delay: 2
+
+Sitemap: https://evakuator-service11.ru/sitemap.xml
