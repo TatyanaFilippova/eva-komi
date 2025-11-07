@@ -31,6 +31,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link rel="canonical" href="https://evakuator-service11.ru/" />
+      </head>
       <body data-version="1.0.0">
         <ProgressBar>
           <Analytics />
