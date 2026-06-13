@@ -5,25 +5,33 @@ import Benefits from "@/shared/components/Benefits/Benefits";
 import EvacuationСards from "@/shared/components/EvacuationСards/EvacuationСards/EvacuationСards";
 import BlockTextServices from "@/shared/components/BlockTextServices/BlockTextServices";
 
-export type Blocks = {
-  __typename: string;
+export type BlockListItem = {
   title: string;
-  content: string;
   description: string;
-  id: string;
-  variant: string;
-  list: {
-    description: string;
-    size: string;
-    title: string;
-    sort: number;
-    id: string;
-    link: string;
-    image: {
-      url: string;
+  image: { url: string };
+  size?: string;
+  link?: string | null;
+};
+
+export type Block =
+  | {
+      __typename: "ComponentEvaKomiText";
+      title: string;
+      content: string;
+    }
+  | {
+      __typename: "ComponentEvaKomiBigCenterText";
+      title: string;
+    }
+  | {
+      __typename: "ComponentEvaKomiServiceCards";
+      title: string;
+      description?: string;
+      variant: string;
+      list: BlockListItem[];
     };
-  }[];
-}[];
+
+export type Blocks = Block[];
 
 interface BlockConstructorProps {
   blocks: Blocks;
@@ -40,16 +48,14 @@ const BlockConstructor = ({ blocks }: BlockConstructorProps) => (
           <ServiceCards
             key={index}
             title={item.title}
-            description={item.description}
-            listCards={item.list.map((card) => {
-              return {
-                titleCard: card.title,
-                descriptionCard: card.description,
-                size: card.size?.toUpperCase(),
-                imageCard: card.image.url,
-                link: card.link,
-              };
-            })}
+            description={item.description ?? ""}
+            listCards={item.list.map((card) => ({
+              titleCard: card.title,
+              descriptionCard: card.description,
+              size: card.size?.toUpperCase() ?? "M",
+              imageCard: card.image.url,
+              link: card.link ?? undefined,
+            }))}
           />
         );
       }
@@ -70,7 +76,7 @@ const BlockConstructor = ({ blocks }: BlockConstructorProps) => (
           <Benefits
             key={index}
             title={item.title}
-            description={item.description}
+            description={item.description ?? ""}
             listBenefits={item.list.map((card) => {
               return {
                 titleCard: card.title,
@@ -89,15 +95,13 @@ const BlockConstructor = ({ blocks }: BlockConstructorProps) => (
           <EvacuationСards
             key={index}
             title={item.title}
-            description={item.description}
-            listEvacuationCards={item.list.map((card) => {
-              return {
-                titleCard: card.title,
-                descriptionCard: card.description,
-                link: card.link,
-                imageCard: card.image.url,
-              };
-            })}
+            description={item.description ?? ""}
+            listEvacuationCards={item.list.map((card) => ({
+              titleCard: card.title,
+              descriptionCard: card.description,
+              link: card.link ?? "#CallTruck",
+              imageCard: card.image.url,
+            }))}
           />
         );
       }
