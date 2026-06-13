@@ -4,6 +4,9 @@ import DescriptionHorizontal from "@/shared/components/DescriptionHorizontal/Des
 import Benefits from "@/shared/components/Benefits/Benefits";
 import EvacuationСards from "@/shared/components/EvacuationСards/EvacuationСards/EvacuationСards";
 import BlockTextServices from "@/shared/components/BlockTextServices/BlockTextServices";
+import Faq, { FaqItem } from "@/shared/components/Faq/Faq";
+
+export type { FaqItem };
 
 export type BlockListItem = {
   title: string;
@@ -29,6 +32,11 @@ export type Block =
       description?: string;
       variant: string;
       list: BlockListItem[];
+    }
+  | {
+      __typename: "ComponentEvaKomiFaq";
+      title: string;
+      list: FaqItem[];
     };
 
 export type Blocks = Block[];
@@ -107,6 +115,9 @@ const BlockConstructor = ({ blocks }: BlockConstructorProps) => (
       }
       if (item.__typename === "ComponentEvaKomiBigCenterText") {
         return <BlockTextServices title={item.title} key={index} />;
+      }
+      if (item.__typename === "ComponentEvaKomiFaq") {
+        return <Faq key={index} title={item.title} items={item.list} />;
       }
       return null;
     })}

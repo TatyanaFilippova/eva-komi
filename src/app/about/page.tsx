@@ -2,6 +2,7 @@ import Header from "@/widgets/Header/Header";
 import Footer from "@/widgets/Footer/Footer";
 import TopBanner from "@/shared/components/TopBanner/services/TopBanner";
 import CallTruck from "@/shared/components/CallTruck/CallTruck/CallTruck";
+import Faq from "@/shared/components/Faq/Faq";
 import { aboutPageData } from "@/constants/about";
 import { buildPageMetadata } from "@/utils/seo/metadata";
 import { CALL_TRUCK, CONTACTS, listCardCall } from "@/constants/site";
@@ -9,6 +10,7 @@ import {
   AboutSchemaOrg,
   StaticPageBreadcrumb,
 } from "@/app/services/[slug]/schema-org";
+import { FaqSchema } from "@/utils/seo/faqSchema";
 import styles from "./page.module.scss";
 
 export const metadata = buildPageMetadata({
@@ -22,6 +24,7 @@ export default function AboutPage() {
     <>
       <AboutSchemaOrg />
       <StaticPageBreadcrumb pageName="О компании" path="/about/" />
+      <FaqSchema items={aboutPageData.faq} />
       <Header />
       <TopBanner
         title={aboutPageData.title}
@@ -48,9 +51,14 @@ export default function AboutPage() {
               {CONTACTS.additionalDisplay}
             </a>
           </p>
+          <p>
+            ВКонтакте:{" "}
+            <a href={CONTACTS.vk}>vk.com/evakyatorkomi</a>
+          </p>
           <p>{CONTACTS.address}</p>
         </div>
       </section>
+      <Faq title="Вопросы о компании" items={aboutPageData.faq} />
       <CallTruck
         listCardCall={[...listCardCall]}
         title={CALL_TRUCK.title}

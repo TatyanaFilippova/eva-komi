@@ -8,6 +8,7 @@ import { SchemaOrg } from "@/app/services/[slug]/schema-org";
 import { getServiceBySlug, serviceSlugs } from "@/constants/services";
 import { CALL_TRUCK, listCardCall } from "@/constants/site";
 import { buildPageMetadata } from "@/utils/seo/metadata";
+import { FaqSchema, collectFaqFromBlocks } from "@/utils/seo/faqSchema";
 import { notFound } from "next/navigation";
 
 export const generateStaticParams = () =>
@@ -51,6 +52,7 @@ const DetailedServices = async ({
         description={service.description}
         url={`https://evakuator-service11.ru/services/${slug}/`}
       />
+      <FaqSchema items={collectFaqFromBlocks(service.blocks)} />
       <Header />
       <TopBanner
         title={service.title}

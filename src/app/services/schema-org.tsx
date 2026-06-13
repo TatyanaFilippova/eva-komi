@@ -20,14 +20,16 @@ export function SchemaOrg() {
         "@type": "Offer",
         price: "2000",
         priceCurrency: "RUB",
-        description: "Эвакуация легкового автомобиля по Сыктывкару до 10 км",
+        description:
+          "От 2000 ₽ — эвакуация легкового автомобиля по Сыктывкару до 10 км",
         availability: "https://schema.org/InStock",
       },
       {
         "@type": "Offer",
         price: "3500",
         priceCurrency: "RUB",
-        description: "Эвакуация внедорожника или микроавтобуса до 20 км",
+        description:
+          "От 3500 ₽ — эвакуация внедорожника или микроавтобуса до 20 км",
         availability: "https://schema.org/InStock",
       },
     ],

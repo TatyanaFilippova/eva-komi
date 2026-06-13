@@ -18,7 +18,7 @@ const Card = ({
   return (
     <div className={styles.container}>
       <div>
-        <div className={styles.title}>{titleCard}</div>
+        <h3 className={styles.title}>{titleCard}</h3>
         <div className={styles.description}>{descriptionCard}</div>
       </div>
       <div className={styles.shell}>

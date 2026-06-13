@@ -13,6 +13,8 @@ export const CONTACTS = {
   address: "г. Сыктывкар, Республика Коми",
 } as const;
 
+export const OG_IMAGE = "/images/image_36_17852407c3.png";
+
 export function buildPageMetadata({
   title,
   description,
@@ -39,6 +41,14 @@ export function buildPageMetadata({
       siteName: SITE_NAME,
       locale: "ru_RU",
       type: "website",
+      images: [
+        {
+          url: OG_IMAGE,
+          width: 1200,
+          height: 630,
+          alt: `${SITE_NAME} — эвакуатор в Сыктывкаре`,
+        },
+      ],
     },
   };
 }

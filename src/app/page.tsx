@@ -9,6 +9,7 @@ import BlockConstructor from "@/shared/components/BlockConstructor/BlockConstruc
 import { SchemaOrg } from "@/app/schema-org";
 import { CALL_TRUCK, listCardCall, RUNNING_LINE_TEXT } from "@/constants/site";
 import { buildPageMetadata } from "@/utils/seo/metadata";
+import { FaqSchema, collectFaqFromBlocks } from "@/utils/seo/faqSchema";
 
 export const metadata = buildPageMetadata({
   title: homeData.metaTitle,
@@ -20,6 +21,7 @@ export default function Home() {
   return (
     <div className={styles.page}>
       <SchemaOrg />
+      <FaqSchema items={collectFaqFromBlocks(homeData.blocks)} />
       <Header />
       <TopBannerHome title={homeData.title} description={homeData.text} />
       <RunningLine text={RUNNING_LINE_TEXT} />

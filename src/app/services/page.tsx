@@ -8,6 +8,7 @@ import { SchemaOrg, BreadcrumbSchema } from "@/app/services/schema-org";
 import { servicesPageData } from "@/constants/servicesPage";
 import { CALL_TRUCK, listCardCall, RUNNING_LINE_TEXT } from "@/constants/site";
 import { buildPageMetadata } from "@/utils/seo/metadata";
+import { FaqSchema, collectFaqFromBlocks } from "@/utils/seo/faqSchema";
 
 export const metadata = buildPageMetadata({
   title: servicesPageData.metaTitle,
@@ -20,6 +21,7 @@ export default function ServicesPage() {
     <>
       <SchemaOrg />
       <BreadcrumbSchema />
+      <FaqSchema items={collectFaqFromBlocks(servicesPageData.blocks)} />
       <Header />
       <TopBanner
         title={servicesPageData.title}
