@@ -1,0 +1,40 @@
+import type { MetadataRoute } from "next";
+import { SITE_URL } from "@/utils/seo/metadata";
+import { serviceSlugs } from "@/constants/services";
+
+export default function sitemap(): MetadataRoute.Sitemap {
+  const now = new Date();
+
+  return [
+    {
+      url: `${SITE_URL}/`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 1,
+    },
+    {
+      url: `${SITE_URL}/services/`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
+      url: `${SITE_URL}/prices/`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${SITE_URL}/about/`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    ...serviceSlugs.map((slug) => ({
+      url: `${SITE_URL}/services/${slug}/`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    })),
+  ];
+}

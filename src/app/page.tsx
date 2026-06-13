@@ -2,43 +2,36 @@ import styles from "./page.module.scss";
 import Header from "@/widgets/Header/Header";
 import RunningLine from "@/shared/components/RunningLine/RunningLine";
 import CallTruck from "@/shared/components/CallTruck/CallTruck/CallTruck";
-import { listCardCall } from "@/shared/components/CallTruck/CallTruck/CallTruck.stories";
 import Footer from "@/widgets/Footer/Footer";
 import TopBannerHome from "@/shared/components/TopBanner/home/TopBanner";
-import { getHomeData } from "@/utils/api/getHomeData";
+import { homeData } from "@/constants/home";
 import BlockConstructor from "@/shared/components/BlockConstructor/BlockConstructor";
-import { Metadata } from "next";
 import { SchemaOrg } from "@/app/schema-org";
+import { CALL_TRUCK, listCardCall, RUNNING_LINE_TEXT } from "@/constants/site";
+import { buildPageMetadata } from "@/utils/seo/metadata";
+import { FaqSchema, collectFaqFromBlocks } from "@/utils/seo/faqSchema";
 
-export const generateMetadata = async (): Promise<Metadata> => {
-  const data = await getHomeData();
+export const metadata = buildPageMetadata({
+  title: homeData.metaTitle,
+  description: homeData.metaDescription,
+  path: "/",
+});
 
-  return {
-    title: data.home.metaTitle,
-    description: data.home.metaDescription,
-  };
-};
-
-export default async function Home() {
-  const data = await getHomeData();
-
+export default function Home() {
   return (
     <div className={styles.page}>
       <SchemaOrg />
+      <FaqSchema items={collectFaqFromBlocks(homeData.blocks)} />
       <Header />
-      <TopBannerHome title={data.home.title} description={data.home.text} />
-      <RunningLine text="Все услуги службы эвакуации" />
-      <BlockConstructor blocks={data.home.blocks} />
+      <TopBannerHome title={homeData.title} description={homeData.text} />
+      <RunningLine text={RUNNING_LINE_TEXT} />
+      <BlockConstructor blocks={homeData.blocks} />
       <CallTruck
-        listCardCall={listCardCall}
-        title="Как вызвать эвакуатор"
-        description="Также вы можете задать свой вопрос, получить консультацию, узнать текущие цены и акции."
+        listCardCall={[...listCardCall]}
+        title={CALL_TRUCK.title}
+        description={CALL_TRUCK.description}
       />
       <Footer />
     </div>
   );
 }
-
-// export const revalidate = 60;
-
-export const dynamic = "force-dynamic";

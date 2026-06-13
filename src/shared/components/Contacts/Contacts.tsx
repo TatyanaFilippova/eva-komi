@@ -1,17 +1,22 @@
 import styles from "./styles.module.scss";
 import vk from "./../../assets/images/vk.png";
-import number from "./../../assets/images/number.png";
+import number from "./../../assets/images/number.svg";
+import { CONTACTS } from "@/constants/site";
 
 const Contacts = () => {
   return (
     <div className={styles.container}>
       <div className={styles.shell}>
-        <img src={vk.src} className={styles.icon} />
-        <div className={styles.title}>https://vk.com/evakyatorkomi</div>
+        <img src={vk.src} className={styles.icon} alt="Группа ВКонтакте" />
+        <a href={CONTACTS.vk} className={styles.title}>
+          vk.com/evakyatorkomi
+        </a>
       </div>
       <div className={styles.shell}>
-        <img src={number.src} className={styles.icon} />
-        <div className={styles.title}>+7 963 022-16-79 </div>
+        <img src={number.src} className={styles.icon} alt="Телефон" />
+        <a href={CONTACTS.phoneHref} className={styles.title}>
+          {CONTACTS.phoneDisplay}
+        </a>
       </div>
     </div>
   );

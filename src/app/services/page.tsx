@@ -1,44 +1,42 @@
 import TopBanner from "@/shared/components/TopBanner/services/TopBanner";
 import Header from "@/widgets/Header/Header";
-import { getServicesData } from "@/utils/api/getServicesData";
 import RunningLine from "@/shared/components/RunningLine/RunningLine";
 import BlockConstructor from "@/shared/components/BlockConstructor/BlockConstructor";
 import CallTruck from "@/shared/components/CallTruck/CallTruck/CallTruck";
-import { listCardCall } from "@/shared/components/CallTruck/CallTruck/CallTruck.stories";
 import Footer from "@/widgets/Footer/Footer";
-import { Metadata } from "next";
-import { SchemaOrg } from "@/app/services/schema-org";
+import { SchemaOrg, BreadcrumbSchema } from "@/app/services/schema-org";
+import { servicesPageData } from "@/constants/servicesPage";
+import { CALL_TRUCK, listCardCall, RUNNING_LINE_TEXT } from "@/constants/site";
+import { buildPageMetadata } from "@/utils/seo/metadata";
+import { FaqSchema, collectFaqFromBlocks } from "@/utils/seo/faqSchema";
 
-export const generateMetadata = async (): Promise<Metadata> => {
-  const data = await getServicesData();
+export const metadata = buildPageMetadata({
+  title: servicesPageData.metaTitle,
+  description: servicesPageData.metaDescription,
+  path: "/services/",
+});
 
-  return {
-    title: data.servicesBreeding.metaTitle,
-    description: data.servicesBreeding.metaDescription,
-  };
-};
-
-export default async function Home() {
-  const data = await getServicesData();
+export default function ServicesPage() {
   return (
     <>
       <SchemaOrg />
+      <BreadcrumbSchema />
+      <FaqSchema items={collectFaqFromBlocks(servicesPageData.blocks)} />
       <Header />
       <TopBanner
-        title={data.servicesBreeding.title}
-        description={data.servicesBreeding.text}
-        subtitle={data.servicesBreeding.subtitle}
+        title={servicesPageData.title}
+        description={servicesPageData.text}
+        subtitle={servicesPageData.subtitle}
+        imageAlt="Услуги эвакуатора в Сыктывкаре"
       />
-      <RunningLine text="Все услуги службы эвакуации" />
-      <BlockConstructor blocks={data.servicesBreeding.blocks} />
+      <RunningLine text={RUNNING_LINE_TEXT} />
+      <BlockConstructor blocks={servicesPageData.blocks} />
       <CallTruck
-        listCardCall={listCardCall}
-        title="Как вызвать эвакуатор"
-        description="Также вы можете задать свой вопрос, получить консультацию, узнать текущие цены и акции."
+        listCardCall={[...listCardCall]}
+        title={CALL_TRUCK.title}
+        description={CALL_TRUCK.description}
       />
       <Footer />
     </>
   );
 }
-
-export const dynamic = "force-dynamic";

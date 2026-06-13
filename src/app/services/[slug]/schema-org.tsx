@@ -1,66 +1,111 @@
+import { businessSchema } from "@/app/schema-org";
+import { SITE_NAME, SITE_URL } from "@/utils/seo/metadata";
+
 export function SchemaOrg(props: {
   title: string;
-  subtitle: string;
+  description: string;
   url: string;
 }) {
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: props.title,
+    description: props.description,
+    url: props.url,
+    areaServed: businessSchema.areaServed,
+    provider: businessSchema,
+    contactPoint: {
+      "@type": "ContactPoint",
+      telephone: businessSchema.telephone,
+      contactType: "customer service",
+      availableLanguage: ["Russian"],
+    },
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Главная",
+        item: `${SITE_URL}/`,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Услуги",
+        item: `${SITE_URL}/services/`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: props.title,
+        item: props.url,
+      },
+    ],
+  };
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+    </>
+  );
+}
+
+export function StaticPageBreadcrumb(props: {
+  pageName: string;
+  path: string;
+}) {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Главная",
+        item: `${SITE_URL}/`,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: props.pageName,
+        item: `${SITE_URL}${props.path}`,
+      },
+    ],
+  };
+
   return (
     <script
       type="application/ld+json"
-      dangerouslySetInnerHTML={{
-        __html: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "Service",
-          name: props.title,
-          serviceType: props.subtitle,
-          description: props.subtitle,
-          areaServed: {
-            "@type": "Place", // валидный тип
-            name: "Сыктывкар",
-          },
-          provider: {
-            "@type": "LocalBusiness",
-            name: "Эвакуатор Сыктывкар",
-            telephone: "+7(912)864-01-11",
-            address: {
-              "@type": "PostalAddress",
-              addressLocality: "Сыктывкар",
-              addressRegion: "Республика Коми",
-              addressCountry: "RU",
-            },
-            openingHoursSpecification: [
-              {
-                "@type": "OpeningHoursSpecification",
-                dayOfWeek: [
-                  "Monday",
-                  "Tuesday",
-                  "Wednesday",
-                  "Thursday",
-                  "Friday",
-                  "Saturday",
-                  "Sunday",
-                ],
-                opens: "00:00",
-                closes: "23:59",
-              },
-            ],
-          },
-          contactPoint: {
-            "@type": "ContactPoint",
-            telephone: "+7(912)864-01-11",
-            contactType: "customer service",
-            availableLanguage: ["Russian"],
-          },
-          url: props.url,
-          keywords: [
-            "эвакуатор легковых",
-            "эвакуатор Сыктывкар",
-            "эвакуация авто",
-            "помощь на дороге",
-            props.title,
-            props.subtitle,
-          ],
-        }),
-      }}
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  );
+}
+
+export function AboutSchemaOrg() {
+  const schema = {
+    "@context": "https://schema.org",
+    ...businessSchema,
+    name: SITE_NAME,
+    description:
+      "Профессиональная служба эвакуации автомобилей в Сыктывкаре и Республике Коми. Круглосуточный выезд, современный автопарк.",
+    url: `${SITE_URL}/about/`,
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
     />
   );
 }

@@ -1,0 +1,41 @@
+@import "./../../styles/variables.scss";
+@import "./../../styles/mixins";
+
+.section {
+  @include layout;
+  margin-top: 120px;
+  margin-bottom: 120px;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: $text-heavy;
+  margin-bottom: 24px;
+}
+
+.list {
+  margin: 0;
+  max-width: 1000px;
+}
+
+.item {
+  padding: 20px 0;
+  border-bottom: 1px solid $color-border-grey;
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.question {
+  font-size: 18px;
+  font-weight: $text-bold-text;
+  margin: 0 0 8px;
+}
+
+.answer {
+  margin: 0;
+  line-height: 1.6;
+  font-size: 14px;
+  font-weight: $text-book;
+}

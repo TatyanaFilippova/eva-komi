@@ -27,7 +27,7 @@ const Card = ({
       whileInView={{ opacity: 1, scale: 1 }}
       viewport={{ once: true }}
     >
-      <div className={styles.title}>{titleCard}</div>
+      <h3 className={styles.title}>{titleCard}</h3>
       <div className={styles.shell}>
         <div>
           <div className={styles.description}>{descriptionCard}</div>
@@ -38,7 +38,7 @@ const Card = ({
             </Link>
           )}
         </div>
-        <img src={imageCard} className={styles.image} />
+        <img src={imageCard} className={styles.image} alt={titleCard} />
       </div>
     </motion.div>
   );

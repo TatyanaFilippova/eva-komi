@@ -10,15 +10,6 @@ const nextConfig: NextConfig = {
     // Игнорировать ESLint во время сборки
     ignoreDuringBuilds: true,
   },
-  async redirects() {
-    return [
-      {
-        source: "/:path*",
-        destination: "https://evakuator-service11.ru/:path*",
-        permanent: true,
-      },
-    ];
-  },
 };
 
 export default nextConfig;

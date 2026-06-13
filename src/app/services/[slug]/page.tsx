@@ -1,44 +1,36 @@
 import TopBanner from "@/shared/components/TopBanner/services/TopBanner";
 import Header from "@/widgets/Header/Header";
-import { getDetailedServicesData } from "@/utils/api/getDetailedServicesData";
 import BlockConstructor from "@/shared/components/BlockConstructor/BlockConstructor";
 import CallTruck from "@/shared/components/CallTruck/CallTruck/CallTruck";
-import { listCardCall } from "@/shared/components/CallTruck/CallTruck/CallTruck.stories";
 import Footer from "@/widgets/Footer/Footer";
-import { Metadata } from "next";
-import { gql, GraphQLClient } from "graphql-request";
 import RunningLine from "@/shared/components/RunningLine/RunningLine";
 import { SchemaOrg } from "@/app/services/[slug]/schema-org";
+import { getServiceBySlug, serviceSlugs } from "@/constants/services";
+import { CALL_TRUCK, listCardCall } from "@/constants/site";
+import { buildPageMetadata } from "@/utils/seo/metadata";
+import { FaqSchema, collectFaqFromBlocks } from "@/utils/seo/faqSchema";
+import { notFound } from "next/navigation";
+
+export const generateStaticParams = () =>
+  serviceSlugs.map((slug) => ({ slug }));
 
 export const generateMetadata = async ({
   params,
 }: {
   params: Promise<{ slug: string }>;
-}): Promise<Metadata> => {
+}) => {
   const { slug } = await params;
-  const data = await getDetailedServicesData(slug);
+  const service = getServiceBySlug(slug);
 
-  return {
-    title: data.services[0].metaTitle,
-    description: data.services[0].metaDescription,
-  };
-};
+  if (!service) {
+    return {};
+  }
 
-const endpoint = "https://cms.evakuator-service11.ru/graphql";
-const client = new GraphQLClient(endpoint);
-
-export const generateStaticParams = async () => {
-  const data = await client.request<any>(gql`
-    query Slugs {
-      services {
-        slug
-      }
-    }
-  `);
-
-  return data.services.map((item: any) => ({
-    slug: item.slug,
-  }));
+  return buildPageMetadata({
+    title: service.metaTitle,
+    description: service.metaDescription,
+    path: `/services/${slug}/`,
+  });
 };
 
 const DetailedServices = async ({
@@ -47,34 +39,38 @@ const DetailedServices = async ({
   params: Promise<{ slug: string }>;
 }) => {
   const { slug } = await params;
-  const data = await getDetailedServicesData(slug);
-  const services = data.services[0];
+  const service = getServiceBySlug(slug);
+
+  if (!service) {
+    notFound();
+  }
+
   return (
     <div>
       <SchemaOrg
-        title={services.title}
-        subtitle={services.subTitle}
+        title={service.title}
+        description={service.description}
         url={`https://evakuator-service11.ru/services/${slug}/`}
       />
+      <FaqSchema items={collectFaqFromBlocks(service.blocks)} />
       <Header />
       <TopBanner
-        title={services.title}
-        description={services.description}
-        subtitle={services.subTitle}
-        image={services.banner.url}
+        title={service.title}
+        description={service.description}
+        subtitle={service.subTitle}
+        image={service.banner.url}
+        imageAlt={service.title}
       />
-      <RunningLine text={services.interactiveText} />
-      <BlockConstructor blocks={services.blocks} />
+      <RunningLine text={service.interactiveText ?? ""} />
+      <BlockConstructor blocks={service.blocks} />
       <CallTruck
-        listCardCall={listCardCall}
-        title="Как вызвать эвакуатор"
-        description="Также вы можете задать свой вопрос, получить консультацию,  узнать текущие цены и акции."
+        listCardCall={[...listCardCall]}
+        title={CALL_TRUCK.title}
+        description={CALL_TRUCK.description}
       />
       <Footer />
     </div>
   );
 };
-
-export const dynamic = "force-dynamic";
 
 export default DetailedServices;
