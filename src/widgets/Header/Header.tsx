@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import ModalMenu from "@/shared/components/ModalMenu/ModalMenu";
+import { CONTACTS } from "@/constants/site";
 
 const Header = () => {
   const pathname = usePathname();
@@ -29,15 +30,15 @@ const Header = () => {
         </div>
         <div className={styles.container_menu}>
           <Link
-            href="/#"
+            href="/"
             className={pathname === "/" ? styles.active_link : styles.active}
           >
             Главная
           </Link>
           <Link
-            href="/services"
+            href="/services/"
             className={
-              pathname === "/services" ? styles.active_link : styles.active
+              pathname.startsWith("/services") ? styles.active_link : styles.active
             }
           >
             Список услуг
@@ -45,21 +46,32 @@ const Header = () => {
           <Link href="#CallTruck" className={styles.active}>
             Вызвать эвакуатор
           </Link>
-          <Link href="/#" className={styles.active}>
+          <Link
+            href="/prices/"
+            className={
+              pathname.startsWith("/prices") ? styles.active_link : styles.active
+            }
+          >
             Цены
           </Link>
-          <Link href="/#" className={styles.active}>
+          <Link
+            href="/about/"
+            className={
+              pathname.startsWith("/about") ? styles.active_link : styles.active
+            }
+          >
             О компании
           </Link>
         </div>
         <div className={styles.shell}>
-          <Link href="tel:8 912 864 01 11 " className={styles.number}>
-            +7(912)864-01-11
+          <Link href={CONTACTS.phoneHref} className={styles.number}>
+            {CONTACTS.phoneDisplay}
           </Link>
           <img
             src={menu.src}
             className={styles.icon_menu}
             onClick={openModal}
+            alt="Открыть меню"
           />
         </div>
       </div>

@@ -1,23 +1,28 @@
-// app/schema-org.tsx
+import { CONTACTS, SITE_NAME, SITE_URL } from "@/utils/seo/metadata";
+
+const businessSchema = {
+  "@type": "AutomotiveBusiness" as const,
+  name: SITE_NAME,
+  telephone: CONTACTS.phoneDisplay,
+  address: {
+    "@type": "PostalAddress" as const,
+    addressLocality: "Сыктывкар",
+    addressRegion: "Республика Коми",
+    addressCountry: "RU",
+  },
+  areaServed: {
+    "@type": "Place" as const,
+    name: "Сыктывкар, Республика Коми",
+  },
+};
+
 export function SchemaOrg() {
   const schema = {
     "@context": "https://schema.org",
-    "@type": "AutomotiveBusiness", // валидный тип для эвакуатора
-    name: "Эвакуатор 24/7 — Сыктывкар и Республика Коми",
+    ...businessSchema,
     description:
-      "Круглосуточные услуги эвакуатора по Сыктывкару и всей Республике Коми. Быстрая подача, аккуратная эвакуация и низкие цены.",
-    url: "https://evakuator-service11.ru/",
-    telephone: "+7 (912) 864-01-11",
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: "Сыктывкар",
-      addressRegion: "Республика Коми",
-      addressCountry: "RU",
-    },
-    areaServed: {
-      "@type": "Place",
-      name: "Сыктывкар, Республика Коми",
-    },
+      "Круглосуточные услуги эвакуатора по Сыктывкару и всей Республике Коми. Быстрая подача, аккуратная эвакуация и фиксированные цены.",
+    url: `${SITE_URL}/`,
     openingHoursSpecification: [
       {
         "@type": "OpeningHoursSpecification",
@@ -37,7 +42,7 @@ export function SchemaOrg() {
     priceRange: "₽₽",
     contactPoint: {
       "@type": "ContactPoint",
-      telephone: "+7 (912) 864-01-11",
+      telephone: CONTACTS.phoneDisplay,
       contactType: "customer service",
       availableLanguage: ["Russian"],
     },
@@ -50,3 +55,5 @@ export function SchemaOrg() {
     />
   );
 }
+
+export { businessSchema };

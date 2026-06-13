@@ -30,7 +30,7 @@ const Card = ({
         </Link>
       </div>
 
-      <img src={imageCard} className={styles.imageCard} />
+      <img src={imageCard} className={styles.imageCard} alt={titleCard} />
     </div>
   );
 };

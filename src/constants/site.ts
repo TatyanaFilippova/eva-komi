@@ -1,3 +1,5 @@
+import { CONTACTS } from "@/utils/seo/metadata";
+
 export const RUNNING_LINE_TEXT = "Все услуги службы эвакуации";
 
 export const CALL_TRUCK = {
@@ -10,10 +12,10 @@ export const listCardCall = [
   {
     titleCard: "Способ 1",
     descriptionCard: "Позвоните по номеру",
-    method: "8 912 864 01 11",
+    method: CONTACTS.phoneDisplay,
     processButton: "Позвонить",
     id: 1,
-    href: "tel:8 912 864 01 11",
+    href: CONTACTS.phoneHref,
   },
   {
     titleCard: "Способ 2",
@@ -21,14 +23,16 @@ export const listCardCall = [
     method: "vk.com/evakyatorkomi",
     processButton: "Перейти",
     id: 2,
-    href: "https://vk.com/evakyatorkomi",
+    href: CONTACTS.vk,
   },
   {
     titleCard: "Способ 3",
-    descriptionCard: "Напишите в Whatsapp",
-    method: "8 912 864 01 11",
+    descriptionCard: "Напишите в WhatsApp",
+    method: CONTACTS.whatsappDisplay,
     processButton: "Перейти",
     id: 3,
-    href: "https://wa.clck.bar/79630221679",
+    href: CONTACTS.whatsappHref,
   },
 ] as const;
+
+export { CONTACTS };

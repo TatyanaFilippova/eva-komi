@@ -13,7 +13,7 @@ function CardBenefit({
 }: CardBenefitsProps) {
   return (
     <div className={styles.container}>
-      <img src={imageCard} className={styles.image} />
+      <img src={imageCard} className={styles.image} alt={titleCard} />
       <div className={styles.title}>{titleCard}</div>
       <div className={styles.description}>{descriptionCard}</div>
     </div>

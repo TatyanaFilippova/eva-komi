@@ -7,7 +7,19 @@ interface BlockTextServicesProps {
 const BlockTextServices = ({ title }: BlockTextServicesProps) => {
   return (
     <div className={styles.wrapper}>
-      <div className={styles.title}>{title}</div>
+      <h2 className={styles.title}>
+        {title.split("\n\n").map((paragraph, index, arr) => (
+          <span key={index}>
+            {paragraph}
+            {index < arr.length - 1 && (
+              <>
+                <br />
+                <br />
+              </>
+            )}
+          </span>
+        ))}
+      </h2>
     </div>
   );
 };

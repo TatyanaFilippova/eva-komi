@@ -18,9 +18,9 @@ const customStyles = {
 
 const links = [
   { namePage: "Главная", linkPage: "/", id: 1 },
-  { namePage: "Список услуг", linkPage: "/services", id: 2 },
-  { namePage: "Цены", linkPage: "#", id: 3 },
-  { namePage: "О компании", linkPage: "#", id: 4 },
+  { namePage: "Список услуг", linkPage: "/services/", id: 2 },
+  { namePage: "Цены", linkPage: "/prices/", id: 3 },
+  { namePage: "О компании", linkPage: "/about/", id: 4 },
 ];
 
 interface IProps {
@@ -46,7 +46,7 @@ const ModalMenu = ({ modalIsOpen, setIsOpen }: IProps) => {
               }}
               className={styles.title}
             >
-              <img src={point.src} className={styles.pointImg} />
+              <img src={point.src} className={styles.pointImg} alt="" />
               {listMenu.namePage}
               <div className={styles.border}></div>
             </Link>
@@ -55,6 +55,7 @@ const ModalMenu = ({ modalIsOpen, setIsOpen }: IProps) => {
         <img
           src={close.src}
           className={styles.closeImg}
+          alt="Закрыть меню"
           onClick={() => {
             setIsOpen(false);
           }}

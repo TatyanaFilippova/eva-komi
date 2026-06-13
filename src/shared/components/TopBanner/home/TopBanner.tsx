@@ -6,6 +6,7 @@ import Contacts from "./../../Contacts/Contacts";
 import phon from "./../../../assets/images/phon.svg";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { CONTACTS } from "@/constants/site";
 
 interface TopBannerHomeProps {
   title: string;
@@ -21,22 +22,27 @@ const TopBannerHome = ({ heading, description, title }: TopBannerHomeProps) => {
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
   return (
     <div className={styles.container}>
-      <img src={fonBanner.src} className={styles.fonBanner} />
-      <img src={carBanner.src} className={styles.carBanner} />
+      <img src={fonBanner.src} className={styles.fonBanner} alt="" />
+      <img
+        src={carBanner.src}
+        className={styles.carBanner}
+        alt="Эвакуатор Эва Коми в Сыктывкаре"
+      />
       <div className={styles.shell}>
-        {heading && <div className={styles.heading}>{heading}</div>}
-        <div className={styles.title}>{title}</div>
-        <div className={styles.description}>{description}</div>
+        {heading && <p className={styles.heading}>{heading}</p>}
+        <h1 className={styles.title}>{title}</h1>
+        <p className={styles.description}>{description}</p>
       </div>
       <div className={styles.shellContacts}>
         <Contacts />
         <Link
-          href="tel:8 912 864 01 11"
+          href={CONTACTS.phoneHref}
           className={scrolled ? styles.imageScrolled : styles.image}
         >
-          <img src={phon.src} alt="phon" />
+          <img src={phon.src} alt="Позвонить эвакуатору" />
         </Link>
       </div>
     </div>

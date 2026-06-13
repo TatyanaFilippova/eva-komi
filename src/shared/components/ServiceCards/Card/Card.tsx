@@ -38,7 +38,7 @@ const Card = ({
             </Link>
           )}
         </div>
-        <img src={imageCard} className={styles.image} />
+        <img src={imageCard} className={styles.image} alt={titleCard} />
       </div>
     </motion.div>
   );

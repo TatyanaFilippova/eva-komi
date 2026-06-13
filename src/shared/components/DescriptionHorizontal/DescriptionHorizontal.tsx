@@ -12,8 +12,12 @@ function DescriptionHorizontal({
 }: DescriptionHorizontalProps) {
   return (
     <div className={styles.container}>
-      <div className={styles.title}>{title}</div>
-      <div className={styles.description}>{listTextHorizontal}</div>
+      <h2 className={styles.title}>{title}</h2>
+      <div className={styles.description}>
+        {listTextHorizontal.split("\n\n").map((paragraph, index) => (
+          <p key={index}>{paragraph}</p>
+        ))}
+      </div>
     </div>
   );
 }

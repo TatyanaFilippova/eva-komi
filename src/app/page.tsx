@@ -6,14 +6,15 @@ import Footer from "@/widgets/Footer/Footer";
 import TopBannerHome from "@/shared/components/TopBanner/home/TopBanner";
 import { homeData } from "@/constants/home";
 import BlockConstructor from "@/shared/components/BlockConstructor/BlockConstructor";
-import { Metadata } from "next";
 import { SchemaOrg } from "@/app/schema-org";
 import { CALL_TRUCK, listCardCall, RUNNING_LINE_TEXT } from "@/constants/site";
+import { buildPageMetadata } from "@/utils/seo/metadata";
 
-export const metadata: Metadata = {
+export const metadata = buildPageMetadata({
   title: homeData.metaTitle,
   description: homeData.metaDescription,
-};
+  path: "/",
+});
 
 export default function Home() {
   return (

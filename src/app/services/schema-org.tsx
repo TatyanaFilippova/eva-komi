@@ -1,4 +1,6 @@
-// app/schema-org.tsx
+import { businessSchema } from "@/app/schema-org";
+import { SITE_URL } from "@/utils/seo/metadata";
+
 export function SchemaOrg() {
   const schema = {
     "@context": "https://schema.org",
@@ -10,25 +12,9 @@ export function SchemaOrg() {
       "Эвакуация мотоциклов",
       "Эвакуация спецтехники",
     ],
-    provider: {
-      "@type": "AutomotiveBusiness", // <- валидный тип
-      name: "Эвакуатор 24/7 — Сыктывкар и Республика Коми",
-      telephone: "+7 (912) 864-01-11",
-      areaServed: {
-        "@type": "Place",
-        name: "Сыктывкар, Республика Коми",
-      },
-      address: {
-        "@type": "PostalAddress",
-        addressLocality: "Сыктывкар",
-        addressRegion: "Республика Коми",
-        addressCountry: "RU",
-      },
-    },
-    areaServed: {
-      "@type": "Place",
-      name: "Сыктывкар, Республика Коми",
-    },
+    url: `${SITE_URL}/services/`,
+    provider: businessSchema,
+    areaServed: businessSchema.areaServed,
     offers: [
       {
         "@type": "Offer",
@@ -43,6 +29,34 @@ export function SchemaOrg() {
         priceCurrency: "RUB",
         description: "Эвакуация внедорожника или микроавтобуса до 20 км",
         availability: "https://schema.org/InStock",
+      },
+    ],
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  );
+}
+
+export function BreadcrumbSchema() {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Главная",
+        item: `${SITE_URL}/`,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Услуги",
+        item: `${SITE_URL}/services/`,
       },
     ],
   };

@@ -10,6 +10,7 @@ interface TopBannerProps {
   description: string;
   subtitle?: string;
   image?: string;
+  imageAlt?: string;
 }
 
 const TopBanner = ({
@@ -18,21 +19,24 @@ const TopBanner = ({
   title,
   image,
   subtitle,
+  imageAlt,
 }: TopBannerProps) => {
+  const bannerAlt = imageAlt ?? title;
+
   return (
     <div className={styles.container}>
-      <img src={fonBanner.src} className={styles.fonBanner} />
+      <img src={fonBanner.src} className={styles.fonBanner} alt="" />
       {image ? (
-        <img src={image} className={styles.carBanner} />
+        <img src={image} className={styles.carBanner} alt={bannerAlt} />
       ) : (
-        <img src={carBanner.src} className={styles.carBanner} />
+        <img src={carBanner.src} className={styles.carBanner} alt={bannerAlt} />
       )}
 
       <div className={styles.shell}>
-        {heading && <div className={styles.heading}>{heading}</div>}
-        {subtitle && <div className={styles.subtitle}>{subtitle}</div>}
-        <div className={styles.title}>{title}</div>
-        <div className={styles.description}>{description}</div>
+        {heading && <p className={styles.heading}>{heading}</p>}
+        {subtitle && <p className={styles.subtitle}>{subtitle}</p>}
+        <h1 className={styles.title}>{title}</h1>
+        <p className={styles.description}>{description}</p>
       </div>
       <div className={styles.shellContacts}>
         <Contacts />
