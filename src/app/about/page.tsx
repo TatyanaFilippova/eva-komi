@@ -43,10 +43,6 @@ export default function AboutPage() {
             <a href={CONTACTS.phoneHref}>{CONTACTS.phoneDisplay}</a>
           </p>
           <p>
-            WhatsApp:{" "}
-            <a href={CONTACTS.whatsappHref}>{CONTACTS.whatsappDisplay}</a>
-          </p>
-          <p>
             Дополнительный номер:{" "}
             <a href={`tel:${CONTACTS.additionalTel}`}>
               {CONTACTS.additionalDisplay}

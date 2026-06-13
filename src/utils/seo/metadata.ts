@@ -7,8 +7,6 @@ export const CONTACTS = {
   phoneDisplay: "+7 (912) 864-01-11",
   phoneTel: "+79128640111",
   phoneHref: "tel:+79128640111",
-  whatsappDisplay: "+7 (963) 022-16-79",
-  whatsappHref: "https://wa.clck.bar/79630221679",
   additionalDisplay: "+7 (963) 022-16-79",
   additionalTel: "+79630221679",
   vk: "https://vk.com/evakyatorkomi",

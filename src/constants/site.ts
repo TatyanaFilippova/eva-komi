@@ -27,11 +27,11 @@ export const listCardCall = [
   },
   {
     titleCard: "Способ 3",
-    descriptionCard: "Напишите в WhatsApp",
-    method: CONTACTS.whatsappDisplay,
-    processButton: "Перейти",
+    descriptionCard: "Дополнительный номер",
+    method: CONTACTS.additionalDisplay,
+    processButton: "Позвонить",
     id: 3,
-    href: CONTACTS.whatsappHref,
+    href: `tel:${CONTACTS.additionalTel}`,
   },
 ] as const;
 
