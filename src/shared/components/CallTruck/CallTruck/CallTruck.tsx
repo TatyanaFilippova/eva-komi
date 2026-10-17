@@ -13,7 +13,7 @@ interface CallTruckProps {
 
 const CallTruck = ({ listCardCall, title, description }: CallTruckProps) => {
   return (
-    <div className={styles.containerCallTruck} id="CallTruck">
+    <div className={styles.containerCallTruck} id="CallTruck" data-place="call_block">
       <HeadingSection title={title} description={description} />
       <div className={styles.container}>
         {listCardCall.map((card) => (

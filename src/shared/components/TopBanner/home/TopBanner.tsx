@@ -24,7 +24,7 @@ const TopBannerHome = ({ heading, description, title }: TopBannerHomeProps) => {
   }, []);
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} data-place="hero">
       <img src={fonBanner.src} className={styles.fonBanner} alt="" />
       <img
         src={carBanner.src}

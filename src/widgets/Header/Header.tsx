@@ -18,7 +18,7 @@ const Header = () => {
   }, [pathname]);
 
   return (
-    <div className={styles.border_bottom}>
+    <div className={styles.border_bottom} data-place="header">
       <div className={styles.header}>
         <div className={styles.container_promo}>
           <Link href="/" className={styles.promo}>

@@ -4,6 +4,7 @@ import { ReactNode } from "react";
 import ProgressBar from "./../shared/components/progressBar/ProgressBar";
 import Provider from "@/app/Provider";
 import Analytics from "@/app/analytics";
+import Tracker from "@/app/Tracker";
 import { SITE_NAME, SITE_URL } from "@/utils/seo/metadata";
 
 export const metadata: Metadata = {
@@ -40,6 +41,7 @@ export default function RootLayout({
       <body data-version="1.0.0">
         <ProgressBar>
           <Analytics />
+          <Tracker />
           <Provider>{children}</Provider>
         </ProgressBar>
       </body>

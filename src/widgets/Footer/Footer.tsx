@@ -5,7 +5,7 @@ import { CONTACTS } from "@/constants/site";
 
 function Footer() {
   return (
-    <div className={styles.bg}>
+    <div className={styles.bg} data-place="footer">
       <div className={styles.container}>
         <img src={logo.src} className={styles.icon} alt="Эва Коми — эвакуатор" />
         <div className={styles.border}>
